@@ -2,15 +2,15 @@
 
 import { motion } from "framer-motion";
 import Icon from "@mdi/react";
-import { 
-  mdiEmail, 
-  mdiGithub, 
-  mdiLinkedin, 
-  mdiMapMarker, 
-  mdiEarth, 
-  mdiPhone, 
-  mdiInstagram, 
-  mdiGamepadVariant 
+import {
+  mdiEmail,
+  mdiGithub,
+  mdiLinkedin,
+  mdiMapMarker,
+  mdiEarth,
+  mdiPhone,
+  mdiInstagram,
+  mdiGamepadVariant,
 } from "@mdi/js";
 
 export default function Contact() {
@@ -49,6 +49,12 @@ export default function Contact() {
       href: "https://discord.com/users/kazeden1",
       external: true,
       text: "kazeden1",
+    },
+    {
+      type: "GitHub",
+      icon: mdiGithub,
+      href: "https://github.com/FilbertSevilen1",
+      external: true,
     },
     {
       type: "Location",
