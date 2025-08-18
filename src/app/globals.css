@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(-45deg, rgb(20, 50, 20), #000, rgb(20, 50, 20), #000);
+  background-size: 200% 200%;
+  animation: gradientShift 16s  infinite;
+  color:white;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 50% 50%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 50% 50%; }
+}
