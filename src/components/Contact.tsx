@@ -88,7 +88,7 @@ export default function Contact() {
         Feel free to reach out for collaborations or just a friendly hello!
       </motion.p>
 
-      <div className="flex items-center flex-wrap md:gap-8">
+      <div className="flex items-center flex-wrap gap-4 md:gap-8">
         {contacts.map((contact, i) => (
           <motion.div
             key={i}
