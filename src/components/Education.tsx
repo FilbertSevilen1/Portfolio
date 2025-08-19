@@ -93,7 +93,7 @@ export default function Education() {
                       <img
                         src={item.logo}
                         alt={`${item.institution} logo`}
-                        className="object-contain w-24 h-24 bg-white p-1"
+                        className="object-contain rounded-lg w-24 h-24 bg-white p-1"
                       />
                     </div>
                   )}
