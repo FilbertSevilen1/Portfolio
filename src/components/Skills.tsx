@@ -41,11 +41,7 @@ const skills = [
   {
     title: "AI & Machine Learning",
     icon: mdiRobot,
-    items: [
-      "Convolutional Neural Networks (CNN)",
-      "OCR",
-      "Liveness Detection",
-    ],
+    items: ["Convolutional Neural Networks (CNN)", "OCR", "Liveness Detection"],
   },
   {
     title: "API Development",
@@ -91,9 +87,14 @@ const skills = [
 export default function Skills() {
   return (
     <section id="skills">
-      <h2 className="text-3xl font-bold py-6 text-green-400">
+      <motion.h2
+        className="text-3xl font-bold py-6 text-green-400"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         Skills & Abilities
-      </h2>
+      </motion.h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
         {skills.map((skill, index) => (
