@@ -7,30 +7,44 @@ const experiences = [
     company: "Maybank Finance",
     role: "Full-Stack Engineer",
     type: "Full-time",
-    period: "2023 – Present",
+    period: "Jul 2024 – Present",
     logo: "/images/logo/mayfin.webp",
     href: "https://www.maybankfinance.co.id",
     details: [
       "CI/CD Implementation using Docker and Jenkins, to replace manual deployment.",
-      "Developing OCR for Indonesian KTP using CNN in Python and Flask.",
-      "Liveness Face Recognition for secure financial services.",
-      "Electronic Document Signing Application with M-Files.",
-      "Large Language Model Website and API integration.",
-      "Maintaining and enhancing company websites: Service Support, Electronic Sign, Profile, Car Auction, Sales.",
-      "Revamping landing pages with Vue.js for better UX.",
-      "Voucher Redeem Approval Website using Vue.js.",
+      "Developing OCR for Indonesian KTP: Implementing a Convolutional Neural Network (CNN) model using Python and Flask to enable the processing of Images and Documents.",
+      "Liveness Face Recognition: Designing and deploying a liveness detection system to enhance the security of facial recognition applications for financial services.",
+      "Electronic Document Signing Application: Exploring and developing an electronic document signing platform using M-Files, streamlining workflows for document authentication using Vue.js and ASP.NET.",
+      "Large Language Model Website and API: Building and maintaining a website and API to integrate large language models locally, enabling users to interact with advanced language processing capabilities using ASP.NET, SQL Server, and Vue.js.",
+      "Developing, Maintaining and Enhancing Company’s Website: Responsible for ensuring optimal performance and maintenance of key business applications, such as the Service Support, Electronic Sign, Profile Website, Car Auction and Sales Website. Using ASP.NET, SQL Server, and Vue.js.",
     ],
   },
   {
     company: "Cosmic Marketing Corporation (Rota Usa)",
     role: "Full-Stack Developer Freelance",
     type: "Part-time",
-    period: "2024 – Present",
+    period: "Jan 2024 – Present",
     logo: "/images/logo/cosmic.webp",
     href: "https://www.rotausa.com/",
     details: [
-      "Developing robust business websites with responsive design and optimized performance.",
-      "Managing marketplace product listings, content optimization, inventory, and pricing adjustments.",
+      "Developing Business Websites: Creating robust and visually appealing websites for businesses, ensuring responsive design, optimized performance, and seamless user experience. Using React.js, MySQL, and Node.js.",
+      "Managing Products in Marketplace Websites: Managing products in marketplace websites, including listing creation, content optimization, inventory updates, and pricing adjustments to maximize sales and visibility.",
+    ],
+  },
+  {
+    company: "Maybank Finance",
+    role: "Front End Developer Intern",
+    type: "Full-time",
+    period: "Feb 2023 – Feb 2024",
+    logo: "/images/logo/mayfin.webp",
+    href: "https://www.maybankfinance.co.id",
+    details: [
+      "CI/CD Implementation using Docker and Jenkins, to replace manual deployment.",
+      "Developing OCR for Indonesian KTP: Implementing a Convolutional Neural Network (CNN) model using Python and Flask to enable the processing of Images and Documents.",
+      "Developing, Maintaining and Enhancing Company’s Website: Responsible for ensuring optimal performance and maintenance of key business applications, such as the Service Support, Electronic Sign, Profile Website, Car Auction and Sales Website. Using Vue.js.",
+      "Revamping Company’s Website: Worked on improving the user interface and experience of the company’s website using Vue.js, ensuring a modern and professional presentation. Using Nuxt3.",
+      "Redesign UI for Website Landing Page: Enhanced the landing page for a marketing campaign, increasing user engagement and ensuring a high-quality design. Using Vue.js.",
+      "Customer Voucher Redeem Approval Website: Developed a streamlined system for voucher redemption approvals using ASP.NET and Vue.js, contributing to a more efficient process for users.",
     ],
   },
 ];
@@ -55,7 +69,7 @@ export default function ExperienceSection() {
       <div className="grid grid-cols-1 gap-8">
         {experiences.map((exp, index) => (
           <motion.a
-            key={exp.company}
+            key={index}
             href={exp.href}
             target="_blank"
             rel="noopener noreferrer"
@@ -74,7 +88,9 @@ export default function ExperienceSection() {
               </div>
             )}
 
-            <h3 className="text-xl md:text-2xl font-bold text-green-400">{exp.role}</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-green-400">
+              {exp.role}
+            </h3>
             <p className="font-bold">
               {exp.company} • {exp.type}
             </p>
