@@ -74,7 +74,7 @@ export default function ExperienceSection() {
               </div>
             )}
 
-            <h3 className="text-xl font-bold text-green-400">{exp.role}</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-green-400">{exp.role}</h3>
             <p className="font-bold">
               {exp.company} • {exp.type}
             </p>

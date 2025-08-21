@@ -248,7 +248,7 @@ export default function Projects() {
               </div>
             )}
 
-            <p className="mt-4 text-xl">{selected.description}</p>
+            <p className="mt-4 text-lg">{selected.description}</p>
             {selected.link && (
               <a
                 href={selected.link}
