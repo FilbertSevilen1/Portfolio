@@ -39,8 +39,6 @@ const experiences = [
     logo: "/images/logo/mayfin.webp",
     href: "https://www.maybankfinance.co.id",
     details: [
-      "CI/CD Implementation using Docker and Jenkins, to replace manual deployment.",
-      "Developing OCR for Indonesian KTP: Implementing a Convolutional Neural Network (CNN) model using Python and Flask to enable the processing of Images and Documents.",
       "Developing, Maintaining and Enhancing Company’s Website: Responsible for ensuring optimal performance and maintenance of key business applications, such as the Service Support, Electronic Sign, Profile Website, Car Auction and Sales Website. Using Vue.js and ASP.NET",
       "Revamping Company’s Website: Worked on improving the user interface and experience of the company’s website using Vue.js, ensuring a modern and professional presentation. Using Nuxt3 and ASP.NET.",
       "Redesign UI for Website Landing Page: Enhanced the landing page for a marketing campaign, increasing user engagement and ensuring a high-quality design. Using Vue.js.",
