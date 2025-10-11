@@ -16,7 +16,23 @@ const experiences = [
       "Liveness Face Recognition: Designing and deploying a liveness detection system to enhance the security of facial recognition applications for financial services.",
       "Electronic Document Signing Application: Exploring and developing an electronic document signing platform using M-Files, streamlining workflows for document authentication using Vue.js and ASP.NET.",
       "Large Language Model Website and API: Building and maintaining a website and API to integrate large language models locally, enabling users to interact with advanced language processing capabilities using ASP.NET, SQL Server, and Vue.js.",
-      "Developing, Maintaining and Enhancing Company’s Website: Responsible for ensuring optimal performance and maintenance of key business applications, such as the Service Support, Electronic Sign, Profile Website, Car Auction and Sales Website. Using ASP.NET, SQL Server, and Vue.js.",
+      "Developing, Maintaining and Enhancing Company's Website: Responsible for ensuring optimal performance and maintenance of key business applications, such as the Service Support, Electronic Sign, Profile Website, Car Auction and Sales Website. Using ASP.NET, SQL Server, and Vue.js.",
+    ],
+  },
+  {
+    company: "Dope Race",
+    role: "Product Data Specialist",
+    type: "Part-time",
+    period: "Jul 2025 – Present",
+    logo: "/images/logo/doperace.webp",
+    href: "https://doperace.com/",
+    details: [
+      "Upload and manage product listings on Shopify, Amazon, and eBay",
+      "Ensure product details, pricing, and media are consistent and optimized",
+      "Research competitive keywords and product trends to improve visibility",
+      "Monitor and adjust listings for better conversion performance",
+      "Support the team in digital marketing experiments and campaign execution",
+      "Collaborate with marketing and design teams to enhance online presence"
     ],
   },
   {

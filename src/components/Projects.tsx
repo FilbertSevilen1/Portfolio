@@ -21,7 +21,7 @@ const projects = [
       "Client’s project: Built a MetaTrader account management system with three instances (Admin, Client, and Copy Trade Bot) for strategy product functionality. Integrated MetaTrader API with FastAPI backend and Microsoft SQL Server. Tech Stack: FastAPI, MetaTrader API, Microsoft SQL Server",
     year: "2025",
     images: [
-      "/images/projects/stonks/1.webp",
+      "/images/projects/stonks/20.webp",
       "/images/projects/stonks/3.webp",
       "/images/projects/stonks/4.webp",
       "/images/projects/stonks/5.webp",
@@ -39,7 +39,7 @@ const projects = [
       "/images/projects/stonks/17.webp",
       "/images/projects/stonks/18.webp",
       "/images/projects/stonks/19.webp",
-      "/images/projects/stonks/20.webp",
+      "/images/projects/stonks/1.webp",
       "/images/projects/stonks/21.webp",
       "/images/projects/stonks/22.webp",
       "/images/projects/stonks/23.webp",
