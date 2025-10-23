@@ -7,7 +7,7 @@ const experiences = [
     company: "Maybank Finance",
     role: "Full-Stack Engineer",
     type: "Full-time",
-    period: "Jul 2024 – Present",
+    period: "Jul 2024 – Sept 2025",
     logo: "/images/logo/mayfin.webp",
     href: "https://www.maybankfinance.co.id",
     details: [
