@@ -12,9 +12,25 @@ import {
   mdiWeb,
   mdiDatabaseCog,
   mdiFood,
+  mdiBookOutline,
 } from "@mdi/js";
 
 const projects = [
+  {
+    title: "Lanaya Course",
+    description:
+      "Personal Project: Developed a Next.js website to support community by providing online courses. Tech Stack: Next.js, MySQL, Express.js",
+    year: "2025",
+    images: [
+      "/images/projects/lanaya-course/1.webp",
+      "/images/projects/lanaya-course/2.webp",
+      "/images/projects/lanaya-course/3.webp",
+      "/images/projects/lanaya-course/4.webp",
+      "/images/projects/lanaya-course/5.webp",
+    ],
+    link: "",
+    icon: mdiBookOutline,
+  },
   {
     title: "Stonks",
     description:
