@@ -9,19 +9,38 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="flex justify-between items-center py-8">
-      <h1 className="text-xl font-bold">Ignatius Filbert Sevilen</h1>
-      <ul className="hidden md:flex gap-6">
-        <li><a href="#about" className="font-bold hover:text-green-600">About</a></li>
-        <li><a href="#experience" className="font-bold hover:text-green-600">Experience</a></li>
-        <li><a href="#education" className="font-bold hover:text-green-600">Education</a></li>
-        <li><a href="#projects" className="font-bold hover:text-green-600">Projects</a></li>
-        <li><a href="#skills" className="font-bold hover:text-green-600">Skills</a></li>
-        <li><a href="#contact" className="font-bold hover:text-green-600">Contact</a></li>
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-black/60 backdrop-blur-md border-b border-green-500/20">
+      <motion.h1
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="text-lg md:text-xl font-black tracking-tighter uppercase italic text-white"
+      >
+        IFS
+      </motion.h1>
+
+      <ul className="hidden md:flex gap-8">
+        {[
+          { label: "About", href: "#about" },
+          { label: "Experience", href: "#experience" },
+          { label: "Education", href: "#education" },
+          { label: "Projects", href: "#projects" },
+          { label: "Skills", href: "#skills" },
+          { label: "Contact", href: "#contact" },
+        ].map((item) => (
+          <li key={item.label}>
+            <a
+              href={item.href}
+              className="font-mono text-xs tracking-widest uppercase text-gray-400 hover:text-green-400 transition-colors relative group"
+            >
+              {item.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-green-500 transition-all group-hover:w-full" />
+            </a>
+          </li>
+        ))}
       </ul>
 
       <button
-        className="md:hidden z-50 px-2"
+        className="md:hidden z-50 px-2 text-white"
         onClick={() => setIsOpen(!isOpen)}
       >
         <Icon path={isOpen ? mdiClose : mdiMenu} size={1.2} />
@@ -30,68 +49,49 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="fixed top-0 right-0 h-full w-2/3 bg-black shadow-lg md:hidden flex flex-col items-start p-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 md:hidden flex flex-col items-center justify-center p-6"
           >
-            <ul className="flex flex-col gap-6 mt-12 w-full">
-              <li>
-                <a
-                  href="#about"
-                  className="font-bold block hover:text-green-600"
-                  onClick={() => setIsOpen(false)}
+            {/* HUD Scanline Effect for Mobile Menu */}
+            <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]" />
+
+            <ul className="flex flex-col gap-8 text-center w-full">
+              {[
+                { label: "About", href: "#about" },
+                { label: "Experience", href: "#experience" },
+                { label: "Education", href: "#education" },
+                { label: "Projects", href: "#projects" },
+                { label: "Skills", href: "#skills" },
+                { label: "Contact", href: "#contact" },
+              ].map((item, i) => (
+                <motion.li
+                  key={item.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#experience"
-                  className="font-bold block hover:text-green-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#education"
-                  className="font-bold block hover:text-green-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Education
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projects"
-                  className="font-bold block hover:text-green-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#skills"
-                  className="font-bold block hover:text-green-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Skills & Abilities
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="font-bold block hover:text-green-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Contact
-                </a>
-              </li>
+                  <a
+                    href={item.href}
+                    className="text-3xl font-black italic uppercase tracking-tighter text-white hover:text-green-500 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </motion.li>
+              ))}
             </ul>
+
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="mt-12 text-green-500 font-mono text-sm tracking-widest uppercase"
+              onClick={() => setIsOpen(false)}
+            >
+              [ CLOSE ]
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

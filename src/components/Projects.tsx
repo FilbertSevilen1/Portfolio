@@ -17,21 +17,6 @@ import {
 
 const projects = [
   {
-    title: "Lanaya Course",
-    description:
-      "Personal Project: Developed a Next.js website to support community by providing online courses. Tech Stack: Next.js, MySQL, Express.js",
-    year: "2025",
-    images: [
-      "/images/projects/lanaya-course/1.webp",
-      "/images/projects/lanaya-course/2.webp",
-      "/images/projects/lanaya-course/3.webp",
-      "/images/projects/lanaya-course/4.webp",
-      "/images/projects/lanaya-course/5.webp",
-    ],
-    link: "",
-    icon: mdiBookOutline,
-  },
-  {
     title: "Stonks",
     description:
       "Client’s project: Built a MetaTrader account management system with three instances (Admin, Client, and Copy Trade Bot) for strategy product functionality. Integrated MetaTrader API with FastAPI backend and Microsoft SQL Server. Tech Stack: FastAPI, MetaTrader API, Microsoft SQL Server",
@@ -66,6 +51,21 @@ const projects = [
     ],
     link: "",
     icon: mdiCurrencyUsd,
+  },
+  {
+    title: "Lanaya Course",
+    description:
+      "Personal Project: Developed a Next.js website to support community by providing online courses. Tech Stack: Next.js, MySQL, Express.js",
+    year: "2025",
+    images: [
+      "/images/projects/lanaya-course/1.webp",
+      "/images/projects/lanaya-course/2.webp",
+      "/images/projects/lanaya-course/3.webp",
+      "/images/projects/lanaya-course/4.webp",
+      "/images/projects/lanaya-course/5.webp",
+    ],
+    link: "",
+    icon: mdiBookOutline,
   },
   {
     title: "Legend of Arcanis",
@@ -202,78 +202,94 @@ export default function Projects() {
 
   return (
     <section id="projects">
-      <h2
-        ref={projectHeaderRef}
-        className="text-3xl font-bold py-6 text-green-400"
-      >
-        Projects
-      </h2>
+      <div className="relative mb-12">
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 1, ease: "circOut" }}
+          className="absolute -top-4 left-0 w-24 h-1 bg-green-500 origin-left"
+        />
+        <h2
+          ref={projectHeaderRef}
+          className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase text-white"
+        >
+          Projects
+        </h2>
+      </div>
 
       <AnimatePresence mode="wait">
         <motion.div
           key={selected.title}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-12 border-l-2 border-green-400 px-8"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.4, ease: "circOut" }}
+          className="mb-16 relative"
         >
-          <div className="flex flex-col gap-6">
-            <div className="flex justify-between items-center">
-              <h3 className="text-2xl font-semibold flex items-center gap-2">
-                <Icon
-                  path={selected.icon}
-                  size={1.2}
-                  className="text-green-400"
-                />
-                {selected.title}
-              </h3>
-              <p className="">{selected.year}</p>
-            </div>
+          {/* Decorative Brackets for Main Project */}
+          <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-green-500 z-10" />
+          <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-green-500 z-10 opacity-30" />
 
-            {selected.images.length > 0 && (
-              <div className="w-full">
-                <motion.img
-                  src={activeImage}
-                  alt={selected.title}
-                  className="rounded-lg shadow-lg border-2 border-green-400 w-full h-[400px] object-contain cursor-pointer"
-                  onClick={() => setIsPreviewOpen(true)}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.5 }}
-                />
-                <div className="flex flex-wrap gap-3 mt-4">
-                  {selected.images.map((img, i) => (
-                    <motion.img
-                      key={i}
-                      src={img}
-                      alt={`preview-${i}`}
-                      onClick={() => setActiveImage(img)}
-                      className={`cursor-pointer object-contain rounded border-2 w-16 h-12 ${
-                        activeImage === img
-                          ? "border-green-500 shadow-neon"
-                          : "border-gray-700"
-                      }`}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: i * 0.05 }}
-                    />
-                  ))}
-                </div>
+          <div className="bg-gray-900/60 backdrop-blur-xl border border-white/5 p-8 md:p-12 relative overflow-hidden group">
+            {/* Background Grid Accent */}
+            <div className="absolute inset-0 opacity-5 pointer-events-none bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px]" />
+
+            <div className="flex flex-col gap-8 relative z-10">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter flex items-center gap-4">
+                  {selected.title}
+                </h3>
+                <p className="font-mono text-green-500/60 text-lg uppercase tracking-widest">{selected.year}</p>
               </div>
-            )}
 
-            <p className="mt-4 text-lg">{selected.description}</p>
-            {selected.link && (
-              <a
-                href={selected.link}
-                target="_blank"
-                className="mt-6 inline-block px-6 py-3 bg-green-500 text-black font-bold rounded-lg hover:bg-green-400 transition text-center"
-              >
-                View {selected.title} →
-              </a>
-            )}
+              {selected.images.length > 0 && (
+                <div className="w-full space-y-6">
+                  <div className="relative aspect-[16/9] md:h-[500px] overflow-hidden border border-white/10">
+                    <motion.img
+                      src={activeImage}
+                      alt={selected.title}
+                      className="w-full h-full object-contain cursor-pointer transition-transform duration-700 hover:scale-105"
+                      onClick={() => setIsPreviewOpen(true)}
+                    />
+                    {/* Scanline Effect Overlay */}
+                    <div className="absolute inset-0 pointer-events-none opacity-5 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px]" />
+                  </div>
+
+                  <div className="flex flex-wrap gap-4">
+                    {selected.images.map((img, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveImage(img)}
+                        className={`relative group/thumb overflow-hidden border-2 transition-all duration-300 w-20 h-16 ${activeImage === img
+                          ? "border-green-500 shadow-[0_0_10px_rgba(34,197,94,0.3)]"
+                          : "border-white/5 hover:border-white/20"
+                          }`}
+                      >
+                        <img src={img} alt={`thumb-${i}`} className="w-full h-full object-cover" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="max-w-3xl">
+                <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-medium">
+                  {selected.description}
+                </p>
+
+                {selected.link && (
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={selected.link}
+                    target="_blank"
+                    className="mt-10 inline-flex items-center gap-3 px-10 py-4 bg-green-500 text-black font-black uppercase tracking-widest hover:bg-green-400 transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)]"
+                  >
+                    Deploy_Live <span className="text-xl">→</span>
+                  </motion.a>
+                )}
+              </div>
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>
@@ -288,27 +304,26 @@ export default function Projects() {
                   key={project.title}
                   layout
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="p-6 border-l-2 cursor-pointer border-gray-700 hover:border-green-400"
+                  whileInView={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  className="group cursor-pointer relative"
                   onClick={() => {
                     setSelected(project);
                     setActiveImage(project.images[0]);
                   }}
                 >
-                  <h3 className="text-xl font-bold text-green-400 flex items-center gap-2">
-                    <Icon
-                      path={project.icon}
-                      size={1}
-                      className="text-green-400"
-                    />
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm">{project.year}</p>
-                  <p className="mt-2 text-gray-300 line-clamp-4">
-                    {project.description}
-                  </p>
+                  <div className="bg-gray-900/40 backdrop-blur-sm border border-white/5 p-6 transition-all duration-300 group-hover:bg-green-500/[0.03] group-hover:border-green-500/30">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-bold text-white uppercase tracking-tighter group-hover:text-green-400 transition-colors">
+                        {project.title}
+                      </h3>
+                      <span className="font-mono text-xs text-green-500/40 group-hover:text-green-500 transition-colors tracking-widest">{project.year}</span>
+                    </div>
+                    <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
           </AnimatePresence>

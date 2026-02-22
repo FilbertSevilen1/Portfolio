@@ -54,59 +54,74 @@ const education = [
 export default function Education() {
   return (
     <section id="education">
-      <motion.h2
-        className="text-3xl font-bold py-6 text-green-400"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        Education
-      </motion.h2>
+      <div className="relative mb-12">
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 1, ease: "circOut" }}
+          className="absolute -top-4 left-0 w-24 h-1 bg-green-500 origin-left"
+        />
+        <h2
+          className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase text-white"
+        >
+          Education
+        </h2>
+      </div>
 
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-12 max-w-5xl">
         {education.map((edu, index) => (
-          <div key={edu.category}>
+          <div key={edu.category} className="relative">
             <motion.div
-              className="flex items-center gap-2 mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + index * 0.2, duration: 0.5, ease: "easeOut" }}
+              className="flex items-center gap-4 mb-8"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.2 }}
             >
-              <Icon path={edu.icon} size={1.3} className="text-green-400" />
-              <h3 className="text-xl font-bold text-green-400">{edu.category}</h3>
+              <h3 className="text-xl md:text-2xl font-black italic uppercase text-white/80">{edu.category}</h3>
             </motion.div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               {edu.items.map((item, i) => (
                 <motion.a
                   key={`${edu.category}-${i}`}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + (index + i) * 0.2, duration: 0.5, ease: "easeOut" }}
-                  className="p-6 border-l-2 border-gray-700 hover:border-green-400 cursor-pointer hover:shadow-green-500/20 block"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: (index + i) * 0.1 }}
+                  className="group relative block p-8 bg-gray-900/40 backdrop-blur-xl border border-white/5 hover:bg-green-500/[0.03] hover:border-green-500/30 transition-all duration-500"
                 >
-                  {item.logo && (
-                    <div className="mb-4">
-                      <img
-                        src={item.logo}
-                        alt={`${item.institution} logo`}
-                        className="object-contain rounded-lg w-24 h-24 bg-white p-1"
-                      />
-                    </div>
-                  )}
+                  {/* Decorative corner accent */}
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/20 group-hover:border-green-500 transition-colors" />
 
-                  <p className="font-bold text-gray-200 text-lg">
-                    {item.institution}{" "}
-                    <span className="text-sm text-gray-400">({item.year})</span>
-                  </p>
-                  <ul className="list-disc list-inside text-gray-300 space-y-1 mt-2">
-                    {item.details.map((detail, j) => (
-                      <li key={j}>{detail}</li>
-                    ))}
-                  </ul>
+                  <div className="flex flex-col md:flex-row gap-8 items-start">
+                    {item.logo && (
+                      <div className="shrink-0 p-3 bg-white border border-white/10 transition-all duration-700">
+                        <img
+                          src={item.logo}
+                          alt={`${item.institution} logo`}
+                          className="object-contain w-16 h-16"
+                        />
+                      </div>
+                    )}
+
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-4">
+                        <h4 className="text-2xl font-black italic text-white uppercase group-hover:text-green-400 transition-colors">
+                          {item.institution}
+                        </h4>
+                        <span className="font-mono text-sm text-green-500">{item.year}</span>
+                      </div>
+
+                      {item.details.map((detail, j) => (
+                        <li key={j} className="flex gap-3 text-gray-400 group-hover:text-gray-200 transition-colors text-sm md:text-base">
+                          <span className="text-green-500 font-mono text-xs mt-[6px] shrink-0 opacity-20">[{j + 1}]</span>
+                          <p>{detail}</p>
+                        </li>
+                      ))}
+                    </div>
+                  </div>
                 </motion.a>
               ))}
             </div>
