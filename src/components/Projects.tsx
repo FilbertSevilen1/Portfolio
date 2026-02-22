@@ -63,6 +63,8 @@ const projects = [
       "/images/projects/lanaya-course/3.webp",
       "/images/projects/lanaya-course/4.webp",
       "/images/projects/lanaya-course/5.webp",
+      "/images/projects/lanaya-course/6.webp",
+      "/images/projects/lanaya-course/7.webp"
     ],
     link: "",
     icon: mdiBookOutline,
