@@ -10,13 +10,13 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-black/60 backdrop-blur-md border-b border-green-500/20">
-      <motion.h1
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         className="text-lg md:text-xl font-black tracking-tighter uppercase italic text-white"
       >
         IFS
-      </motion.h1>
+      </motion.div>
 
       <ul className="hidden md:flex gap-8">
         {[

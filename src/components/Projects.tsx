@@ -267,7 +267,7 @@ export default function Projects() {
                           : "border-white/5 hover:border-white/20"
                           }`}
                       >
-                        <img src={img} alt={`thumb-${i}`} className="w-full h-full object-cover" />
+                        <img src={img} alt={`${selected.title} preview ${i + 1}`} className="w-full h-full object-cover" />
                       </button>
                     ))}
                   </div>
