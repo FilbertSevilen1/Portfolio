@@ -19,29 +19,34 @@ export default function Contact() {
       type: "Email",
       icon: mdiEmail,
       href: "mailto:sevilenfilbert@gmail.com",
+      text: "sevilenfilbert@gmail.com",
     },
     {
       type: "Phone",
       icon: mdiPhone,
       href: "tel:+6282122848688",
+      text: "+62 821 2284 8688",
     },
     {
       type: "GitHub",
       icon: mdiGithub,
       href: "https://github.com/FilbertSevilen1",
       external: true,
+      text: "FilbertSevilen1",
     },
     {
       type: "LinkedIn",
       icon: mdiLinkedin,
       href: "https://www.linkedin.com/in/ignatius-filbert-sevilen-894467231/",
       external: true,
+      text: "Filbert Sevilen",
     },
     {
       type: "Instagram",
       icon: mdiInstagram,
       href: "https://instagram.com/filbert.sevilen",
       external: true,
+      text: "@filbert.sevilen",
     },
     {
       type: "Discord",
@@ -49,12 +54,6 @@ export default function Contact() {
       href: "https://discord.com/users/kazeden1",
       external: true,
       text: "kazeden1",
-    },
-    {
-      type: "GitHub",
-      icon: mdiGithub,
-      href: "https://github.com/FilbertSevilen1",
-      external: true,
     },
     {
       type: "Location",
