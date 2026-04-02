@@ -9,42 +9,44 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-black/60 backdrop-blur-md border-b border-green-500/20">
-      <motion.h1
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="text-lg md:text-xl font-black tracking-tighter uppercase italic text-white"
-      >
-        IFS
-      </motion.h1>
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-black/60 backdrop-blur-md border-b border-green-500/20">
+        <motion.h1
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-lg md:text-xl font-black tracking-tighter uppercase italic text-white"
+        >
+          IFS
+        </motion.h1>
 
-      <ul className="hidden md:flex gap-8">
-        {[
-          { label: "About", href: "#about" },
-          { label: "Experience", href: "#experience" },
-          { label: "Education", href: "#education" },
-          { label: "Projects", href: "#projects" },
-          { label: "Skills", href: "#skills" },
-          { label: "Contact", href: "#contact" },
-        ].map((item) => (
-          <li key={item.label}>
-            <a
-              href={item.href}
-              className="font-mono text-xs tracking-widest uppercase text-gray-400 hover:text-green-400 transition-colors relative group"
-            >
-              {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-green-500 transition-all group-hover:w-full" />
-            </a>
-          </li>
-        ))}
-      </ul>
+        <ul className="hidden md:flex gap-8">
+          {[
+            { label: "About", href: "#about" },
+            { label: "Experience", href: "#experience" },
+            { label: "Education", href: "#education" },
+            { label: "Projects", href: "#projects" },
+            { label: "Skills", href: "#skills" },
+            { label: "Contact", href: "#contact" },
+          ].map((item) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                className="font-mono text-xs tracking-widest uppercase text-gray-400 hover:text-green-400 transition-colors relative group"
+              >
+                {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-green-500 transition-all group-hover:w-full" />
+              </a>
+            </li>
+          ))}
+        </ul>
 
-      <button
-        className="md:hidden z-50 px-2 text-white"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <Icon path={isOpen ? mdiClose : mdiMenu} size={1.2} />
-      </button>
+        <button
+          className="md:hidden z-50 px-2 text-white"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <Icon path={isOpen ? mdiClose : mdiMenu} size={1.2} />
+        </button>
+      </nav>
 
       <AnimatePresence>
         {isOpen && (
@@ -52,7 +54,8 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 md:hidden flex flex-col items-center justify-center p-6"
+            className="fixed inset-0 z-[60] md:hidden flex flex-col items-center justify-center p-6"
+            style={{ backgroundColor: 'black' }}
           >
             {/* HUD Scanline Effect for Mobile Menu */}
             <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]" />
@@ -95,6 +98,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }

@@ -67,7 +67,7 @@ export default function Hero() {
         className="flex flex-col items-center md:items-start my-4 z-10"
       >
 
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase italic text-white leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter uppercase italic text-white leading-tight">
           Hi, I'm{" "}
           <span className="text-green-500 relative inline-block">
             {displayedName}

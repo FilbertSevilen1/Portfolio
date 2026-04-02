@@ -107,11 +107,11 @@ export default function Education() {
                     )}
 
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-4">
-                        <h4 className="text-2xl font-black italic text-white uppercase group-hover:text-green-400 transition-colors">
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                        <h4 className="text-xl md:text-2xl font-black italic text-white uppercase group-hover:text-green-400 transition-colors">
                           {item.institution}
                         </h4>
-                        <span className="font-mono text-sm text-green-500">{item.year}</span>
+                        <span className="font-mono text-sm text-green-500 shrink-0">{item.year}</span>
                       </div>
 
                       {item.details.map((detail, j) => (

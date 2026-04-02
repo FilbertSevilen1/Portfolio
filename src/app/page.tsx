@@ -9,15 +9,19 @@ import Experience from "@/components/Experience";
 
 export default function Home() {
   return (
-    <main className="max-w-5xl mx-auto px-6 flex flex-col gap-8 pb-16">
+    <>
       <Navbar />
-      <Hero />
-      <About />
-      <Experience/>
-      <Education />
-      <Projects />
-      <Skills />
-      <Contact />
-    </main>
+      <main className="flex flex-col gap-24 pb-16 pt-32">
+        <div className="max-w-5xl mx-auto px-6 w-full flex flex-col gap-24">
+          <Hero />
+          <About />
+          <Experience/>
+          <Education />
+          <Projects />
+          <Skills />
+          <Contact />
+        </div>
+      </main>
+    </>
   );
 }

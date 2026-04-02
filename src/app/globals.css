@@ -24,23 +24,44 @@
 }
 
 @keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 
-html {
+html,
+body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: linear-gradient(-45deg, rgb(20, 50, 20), #000, rgb(20, 50, 20), #000);
+  background: linear-gradient(
+    -45deg,
+    rgb(20, 50, 20),
+    #000,
+    rgb(20, 50, 20),
+    #000
+  );
   background-size: 200% 200%;
-  animation: gradientShift 16s  infinite;
-  color:white;
+  animation: gradientShift 16s infinite;
+  color: white;
 }
 
 @keyframes gradientShift {
-  0% { background-position: 50% 50%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 50% 50%; }
+  0% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 50% 50%;
+  }
 }
