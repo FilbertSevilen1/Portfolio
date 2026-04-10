@@ -88,10 +88,10 @@ export default function Hero() {
           className="mt-12 flex gap-6"
         >
           <a href="#projects" className="px-8 py-3 bg-green-500 text-black font-black uppercase tracking-widest hover:bg-green-400 transition-all shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]">
-            View_Projects
+            View Projects
           </a>
           <a href="#contact" className="px-8 py-3 border border-green-500 text-green-500 font-black uppercase tracking-widest hover:bg-green-500/10 transition-all">
-            Contact_Me
+            Contact Me
           </a>
         </motion.div>
       </motion.div>
