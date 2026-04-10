@@ -17,6 +17,28 @@ import {
 
 const projects = [
   {
+    title: "Holiday-io",
+    description:
+      "Client's Project: A landing page for a Travel Community. The platform connects travelers to create meaningful friendships and build a global community of adventure. Tech Stack: Next.js, Tailwind CSS, UI/UX Design",
+    year: "2026",
+    images: [
+      "/images/projects/holiday-io/1.webp",
+      "/images/projects/holiday-io/2.webp",
+      "/images/projects/holiday-io/3.webp",
+      "/images/projects/holiday-io/4.webp",
+      "/images/projects/holiday-io/5.webp",
+      "/images/projects/holiday-io/6.webp",
+      "/images/projects/holiday-io/7.webp",
+      "/images/projects/holiday-io/8.webp",
+      "/images/projects/holiday-io/9.webp",
+      "/images/projects/holiday-io/10.webp",
+      "/images/projects/holiday-io/11.webp",
+      "/images/projects/holiday-io/12.webp"
+    ],
+    link: "https://holiday-io-kappa.vercel.app/",
+    icon: mdiWeb,
+  },
+  {
     title: "Stonks",
     description:
       "Client’s project: Built a MetaTrader account management system with three instances (Admin, Client, and Copy Trade Bot) for strategy product functionality. Integrated MetaTrader API with FastAPI backend and Microsoft SQL Server. Tech Stack: FastAPI, MetaTrader API, Microsoft SQL Server",
@@ -287,7 +309,7 @@ export default function Projects() {
                     target="_blank"
                     className="mt-10 inline-flex items-center gap-3 px-10 py-4 bg-green-500 text-black font-black uppercase tracking-widest hover:bg-green-400 transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)]"
                   >
-                    Deploy_Live <span className="text-xl">→</span>
+                    Visit Site <span className="text-xl">→</span>
                   </motion.a>
                 )}
               </div>
