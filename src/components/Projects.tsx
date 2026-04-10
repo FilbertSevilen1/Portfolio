@@ -19,8 +19,9 @@ const projects = [
   {
     title: "Holiday-io",
     description:
-      "Client's Project: A landing page for a Travel Community. The platform connects travelers to create meaningful friendships and build a global community of adventure. Tech Stack: Next.js, Tailwind CSS, UI/UX Design",
+      "Client's Project: A landing page for a Travel Community. The platform connects travelers to create meaningful friendships and build a global community of adventure.",
     year: "2026",
+    tags: ["Next.js", "Tailwind CSS", "UI/UX Design"],
     images: [
       "/images/projects/holiday-io/1.webp",
       "/images/projects/holiday-io/2.webp",
@@ -41,8 +42,9 @@ const projects = [
   {
     title: "Stonks",
     description:
-      "Client’s project: Built a MetaTrader account management system with three instances (Admin, Client, and Copy Trade Bot) for strategy product functionality. Integrated MetaTrader API with FastAPI backend and Microsoft SQL Server. Tech Stack: FastAPI, MetaTrader API, Microsoft SQL Server",
+      "Client’s project: Built a MetaTrader account management system with three instances (Admin, Client, and Copy Trade Bot) for strategy product functionality. Integrated MetaTrader API with FastAPI backend and Microsoft SQL Server.",
     year: "2025",
+    tags: ["FastAPI", "MetaTrader API", "Microsoft SQL Server"],
     images: [
       "/images/projects/stonks/20.webp",
       "/images/projects/stonks/3.webp",
@@ -77,8 +79,9 @@ const projects = [
   {
     title: "Lanaya Course",
     description:
-      "Personal Project: Developed a Next.js website to support community by providing online courses. Tech Stack: Next.js, MySQL, Express.js",
+      "Personal Project: Developed a Next.js website to support community by providing online courses.",
     year: "2025",
+    tags: ["Next.js", "MySQL", "Express.js"],
     images: [
       "/images/projects/lanaya-course/1.webp",
       "/images/projects/lanaya-course/2.webp",
@@ -94,8 +97,9 @@ const projects = [
   {
     title: "Legend of Arcanis",
     description:
-      "Personal Project: Developed a Next.js website to promote the Legend of Arcanis game and support new players through guides, resources, and community features. Tech Stack: Next.js, MySQL, Express.js",
+      "Personal Project: Developed a Next.js website to promote the Legend of Arcanis game and support new players through guides, resources, and community features.",
     year: "2025",
+    tags: ["Next.js", "MySQL", "Express.js"],
     images: [
       "/images/projects/legend-of-arcanis/1.webp",
       "/images/projects/legend-of-arcanis/2.webp",
@@ -110,8 +114,9 @@ const projects = [
   {
     title: "Astroride",
     description:
-      "Personal Project: Designed a sleek mockup e-commerce website for a luxury wheels and rims retailer with a modern dark theme for optimal product presentation. Tech Stack: Next.js, MySQL, Express.js, SQL, UI/UX Design",
+      "Personal Project: Designed a sleek mockup e-commerce website for a luxury wheels and rims retailer with a modern dark theme for optimal product presentation.",
     year: "2025",
+    tags: ["Next.js", "MySQL", "Express.js", "SQL", "UI/UX Design"],
     images: [
       "/images/projects/astro/1.webp",
       "/images/projects/astro/2.webp",
@@ -127,8 +132,9 @@ const projects = [
   {
     title: "Wise Cardshop Website",
     description:
-      "Personal Project: Developing a website to promote and sell TCG cards, focusing on e-commerce functionality and user experience. Tech Stack: React.js, MySQL, Express.js, SQL, UI/UX Design",
+      "Personal Project: Developing a website to promote and sell TCG cards, focusing on e-commerce functionality and user experience.",
     year: "2024 – 2025",
+    tags: ["React.js", "MySQL", "Express.js", "SQL", "UI/UX Design"],
     images: [],
     link: "",
     icon: mdiCartOutline,
@@ -136,8 +142,9 @@ const projects = [
   {
     title: "ZedWheels Website",
     description:
-      "Freelance Project – Cosmic Marketing Corporation: Developed a high-performance e-commerce platform for aftermarket wheels with dynamic product listings, variant selection, and smooth navigation. Tech Stack: Next.js, MySQL, Express.js, UI/UX",
+      "Freelance Project – Cosmic Marketing Corporation: Developed a high-performance e-commerce platform for aftermarket wheels with dynamic product listings, variant selection, and smooth navigation.",
     year: "2025",
+    tags: ["Next.js", "MySQL", "Express.js", "UI/UX"],
     images: [
       "/images/projects/zed/1.webp",
       "/images/projects/zed/2.webp",
@@ -153,8 +160,9 @@ const projects = [
   {
     title: "Heavenly Cow Website",
     description:
-      "Personal Project: Developing a mock-up website to promote Beef Restaurant. Tech Stack: React.js, UI/UX Design",
+      "Personal Project: Developing a mock-up website to promote Beef Restaurant.",
     year: "2024",
+    tags: ["React.js", "UI/UX Design"],
     images: [
       "/images/projects/heavenly-cow/1.webp",
       "/images/projects/heavenly-cow/2.webp",
@@ -173,8 +181,9 @@ const projects = [
   {
     title: "Pharmacy Project",
     description:
-      "Purwadhika Web Developer Bootcamp: Developed a web application for pharmacy management as part of the bootcamp curriculum. Tech Stack: React.js, Express.js, MySQL",
+      "Purwadhika Web Developer Bootcamp: Developed a web application for pharmacy management as part of the bootcamp curriculum.",
     year: "2022",
+    tags: ["React.js", "Express.js", "MySQL"],
     images: [],
     link: "",
     icon: mdiPill,
@@ -182,8 +191,9 @@ const projects = [
   {
     title: "Social Media Post Project",
     description:
-      "Purwadhika Web Developer Bootcamp: Created a project for sharing our photos into social media, implemented like and comment features. Tech Stack: React.js, Express.js, MySQL",
+      "Purwadhika Web Developer Bootcamp: Created a project for sharing our photos into social media, implemented like and comment features.",
     year: "2022",
+    tags: ["React.js", "Express.js", "MySQL"],
     images: [],
     link: "",
     icon: mdiCalendarClock,
@@ -225,7 +235,7 @@ export default function Projects() {
   }, [selected]);
 
   return (
-    <section id="projects">
+    <section>
       <div className="relative mb-12">
         <motion.div
           initial={{ scaleX: 0 }}
@@ -318,38 +328,81 @@ export default function Projects() {
         </motion.div>
       </AnimatePresence>
 
+      <h2 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-white mb-8 flex items-center gap-4">
+        <span className="text-green-500">Project</span> Lists
+        <div className="h-[1px] flex-1 bg-green-500/20" />
+      </h2>
+
       <LayoutGroup>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[200px]">
           <AnimatePresence>
             {projects
               .filter((p) => p.title !== selected.title)
-              .map((project) => (
-                <motion.div
-                  key={project.title}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
-                  className="group cursor-pointer relative"
-                  onClick={() => {
-                    setSelected(project);
-                    setActiveImage(project.images[0]);
-                  }}
-                >
-                  <div className="bg-gray-900/40 backdrop-blur-sm border border-white/5 p-6 transition-all duration-300 group-hover:bg-green-500/[0.03] group-hover:border-green-500/30">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-xl font-bold text-white uppercase tracking-tighter group-hover:text-green-400 transition-colors">
-                        {project.title}
-                      </h3>
-                      <span className="font-mono text-xs text-green-500/40 group-hover:text-green-500 transition-colors tracking-widest">{project.year}</span>
+              .map((project, index) => {
+                // Determine Bento Grid Span
+                const bentoClass = 
+                  index % 4 === 0 ? "md:col-span-2 md:row-span-2" : 
+                  index % 4 === 3 ? "md:col-span-3 md:row-span-1" : 
+                  "md:col-span-1 md:row-span-1";
+
+                return (
+                  <motion.div
+                    key={project.title}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.4 }}
+                    className={`group cursor-pointer relative overflow-hidden rounded-2xl border border-white/5 bg-gray-900/40 backdrop-blur-sm transition-all duration-500 hover:border-green-500/40 ${bentoClass}`}
+                    onClick={() => {
+                      setSelected(project);
+                      setActiveImage(project.images[0]);
+                    }}
+                  >
+                    {/* Background Image for Large/Wide items */}
+                    {(index % 4 === 0 || index % 4 === 3) && project.images[0] && (
+                      <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-30 transition-opacity">
+                        <img src={project.images[0]} alt="" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+                      </div>
+                    )}
+
+                    <div className="relative z-10 p-6 flex flex-col h-full justify-between">
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <h3 className="text-xl md:text-2xl font-black italic text-white uppercase tracking-tighter group-hover:text-green-400 transition-colors">
+                            {project.title}
+                          </h3>
+                        </div>
+                        <p className={`text-gray-400 text-sm leading-relaxed mb-4 transition-all duration-500 ${index % 4 === 0 ? "line-clamp-4" : "line-clamp-2"}`}>
+                          {project.description}
+                        </p>
+                      </div>
+
+                      <div className="space-y-4">
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags?.slice(0, 3).map((tag) => (
+                            <span key={tag} className="px-2 py-0.5 border border-green-500/20 rounded-full text-[10px] font-mono text-green-500/60 uppercase">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Hover Action */}
+                        <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                          <span className="text-xs font-black uppercase tracking-widest text-green-500">View Detail</span>
+                          <span className="text-green-500">→</span>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+
+                    {/* Interactive Accent */}
+                    <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]" />
+                    </div>
+                  </motion.div>
+                );
+              })}
           </AnimatePresence>
         </div>
       </LayoutGroup>

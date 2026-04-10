@@ -53,7 +53,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education">
+    <section>
       <div className="relative mb-12">
         <motion.div
           initial={{ scaleX: 0 }}

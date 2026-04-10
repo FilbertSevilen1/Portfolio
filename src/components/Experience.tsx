@@ -67,8 +67,7 @@ const experiences = [
 export default function ExperienceSection() {
   return (
     <motion.section
-      id="experience"
-      className="relative py-24 min-h-screen bg-black overflow-hidden font-sans selection:bg-green-500/30 selection:text-green-400"
+      className="relative overflow-hidden font-sans selection:bg-green-500/30 selection:text-green-400"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}

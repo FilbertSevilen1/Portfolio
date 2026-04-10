@@ -69,7 +69,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-12">
+    <section>
       <div className="relative mb-12">
         <motion.div
           initial={{ scaleX: 0 }}
