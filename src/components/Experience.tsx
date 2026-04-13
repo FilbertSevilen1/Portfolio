@@ -67,8 +67,7 @@ const experiences = [
 export default function ExperienceSection() {
   return (
     <motion.section
-      id="experience"
-      className="relative py-24 min-h-screen bg-black overflow-hidden font-sans selection:bg-green-500/30 selection:text-green-400"
+      className="relative overflow-hidden font-sans selection:bg-green-500/30 selection:text-green-400"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -97,7 +96,7 @@ export default function ExperienceSection() {
         {/* TIMELINE HUB */}
         <div className="relative">
           {/* Central Vertical Line - More subtle */}
-          <div className="absolute left-[15px] md:left-1/2 md:ml-[-0.5px] top-0 bottom-0 w-[1px] bg-linear-to-b from-green-500/30 via-green-500/10 to-transparent hidden md:block" />
+          <div className="absolute left-[15px] md:left-1/2 md:ml-[-0.5px] top-0 bottom-0 w-[1px] bg-gradient-to-b from-green-500/30 via-green-500/10 to-transparent block" />
 
           <div className="space-y-24">
             {experiences.map((exp, index) => (

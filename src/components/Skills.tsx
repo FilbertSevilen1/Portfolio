@@ -86,7 +86,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills">
+    <section>
       <div className="relative mb-12">
         <motion.div
           initial={{ scaleX: 0 }}
