@@ -11,13 +11,12 @@ const experiences = [
     logo: "/images/logo/mayfin.webp",
     href: "https://www.maybankfinance.co.id",
     details: [
-      "Large Language Model Website and API: Building and maintaining a website and API to integrate large language models locally, enabling users to interact with advanced language processing capabilities using ASP.NET, SQL Server, and Vue.js.",
-      "Led a Company Blast Notification CMS Project: Led a small team to design and build CMS pages and a python console that capable of sending notifications to up to 100,000 customers.",
-      "CI/CD Implementation using Docker and Jenkins, to replace manual deployment.",
-      "Developing OCR for Indonesian KTP: Implementing a Convolutional Neural Network (CNN) model using Python and Flask to enable the processing of Images and Documents.",
-      "Liveness Face Recognition: Designing and deploying a liveness detection system to enhance the security of facial recognition applications for financial services.",
-      "Electronic Document Signing Application: Exploring and developing an electronic document signing platform using M-Files, streamlining workflows for document authentication using Vue.js and ASP.NET.",
-      "Developing, Maintaining and Enhancing Company's Website: Responsible for ensuring optimal performance and maintenance of key business applications, such as the Service Support, Electronic Sign, Profile Website, Car Auction and Sales Website. Using ASP.NET, SQL Server, and Vue.js.",
+      "Built an internal LLM portal and API using ASP.NET and Vue.js.",
+      "Led a notification CMS project capable of sending 100k+ customer broadcasts via Python.",
+      "Modernized deployment workflows by migrating to Docker and Jenkins CI/CD.",
+      "Developed Python/Flask OCR system using CNN for automated KTP processing.",
+      "Engineered liveness detection for enhanced facial recognition security.",
+      "Maintained key business portals including Service Support, Car Auction, and Sales websites.",
     ],
   },
   {
@@ -28,12 +27,10 @@ const experiences = [
     logo: "/images/logo/doperace.webp",
     href: "https://doperace.com/",
     details: [
-      "Manage and strategically optimize product data across Shopify, Amazon, and eBay, ensuring high accuracy and strategic positioning.",
-      "Develop SEO-optimized product descriptions and implement high-impact keywords to improve organic visibility and discoverability.",
-      "Analyze user behavior and monitor listing performance metrics to identify and implement data-driven optimization opportunities.",
-      "Maintain pricing integrity and align visual assets with brand standards across all platforms to enhance conversion growth.",
-      "Support digital marketing efforts through keyword research, trend analysis, and campaign experimentation to strengthen online presence.",
-      "Collaborate with marketing and design teams to refine on-site content, branding, and overall user experience.",
+      "Optimized product data and strategy across Amazon, eBay, and Shopify.",
+      "Improved organic visibility via SEO-driven descriptions and keyword execution.",
+      "Analyzed user metrics to implement data-backed performance enhancements.",
+      "Aligned visual assets and pricing integrity to maximize platform conversion.",
     ],
   },
   {
@@ -44,8 +41,8 @@ const experiences = [
     logo: "/images/logo/cosmic.webp",
     href: "https://www.rotausa.com/",
     details: [
-      "Developing Business Websites: Creating robust and visually appealing websites for businesses, ensuring responsive design, optimized performance, and seamless user experience. Using React.js, MySQL, and Node.js.",
-      "Managing Products in Marketplace Websites: Managing products in marketplace websites, including listing creation, content optimization, inventory updates, and pricing adjustments to maximize sales and visibility.",
+      "Developed robust business websites using React.js, Node.js, and MySQL.",
+      "Managed marketplace product listings, adjusting pricing and content to boost visibility.",
     ],
   },
   {
@@ -56,10 +53,9 @@ const experiences = [
     logo: "/images/logo/mayfin.webp",
     href: "https://www.maybankfinance.co.id",
     details: [
-      "Developing, Maintaining and Enhancing Company’s Website: Responsible for ensuring optimal performance and maintenance of key business applications, such as the Service Support, Electronic Sign, Profile Website, Car Auction and Sales Website. Using Vue.js and ASP.NET",
-      "Revamping Company’s Website: Worked on improving the user interface and experience of the company’s website using Vue.js, ensuring a modern and professional presentation. Using Nuxt3 and ASP.NET.",
-      "Redesign UI for Website Landing Page: Enhanced the landing page for a marketing campaign, increasing user engagement and ensuring a high-quality design. Using Vue.js.",
-      "Customer Voucher Redeem Approval Website: Developed a streamlined system for voucher redemption approvals using ASP.NET and Vue.js, contributing to a more efficient process for users.",
+      "Maintained and enhanced core enterprise applications using Vue.js and ASP.NET.",
+      "Revamped the UI/UX for the company's corporate identity website utilizing Nuxt 3.",
+      "Built a secure internal voucher redemption approval portal.",
     ],
   },
 ];
@@ -96,7 +92,7 @@ export default function ExperienceSection() {
         {/* TIMELINE HUB */}
         <div className="relative">
           {/* Central Vertical Line - More subtle */}
-          <div className="absolute left-[15px] md:left-1/2 md:ml-[-0.5px] top-0 bottom-0 w-[1px] bg-gradient-to-b from-green-500/30 via-green-500/10 to-transparent block" />
+          <div className="absolute left-[15px] md:left-1/2 md:ml-[-0.5px] top-0 bottom-0 w-[1px] bg-green-500/20 block" />
 
           <div className="space-y-24">
             {experiences.map((exp, index) => (

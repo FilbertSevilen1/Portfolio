@@ -103,13 +103,13 @@ export default function Hero() {
         className="my-8 relative group"
       >
         {/* Glow behind image */}
-        <div className="absolute inset-0 bg-green-500/20 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+        <div className="absolute inset-0 bg-green-500/20 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-        <div className="relative z-10 p-2 border-2 border-dashed border-green-500/30 rounded-full group-hover:border-green-500 transition-all duration-500">
+        <div className="relative z-10 p-2 border-2 border-dashed border-green-500/30 group-hover:border-green-500 transition-all duration-500">
           <img
             src="/images/profile.webp"
             alt="Ignatius Filbert Sevilen - Full Stack Engineer"
-            className="rounded-full object-contain w-64 h-64 md:w-80 md:h-80 bg-gray-900 shadow-2xl transition-all duration-700"
+            className="object-contain w-64 h-64 md:w-80 md:h-80 bg-gray-900 shadow-2xl transition-all duration-700"
           />
         </div>
 

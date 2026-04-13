@@ -19,26 +19,36 @@ export default function Navbar() {
           IFS
         </motion.h1>
 
-        <ul className="hidden md:flex gap-8">
-          {[
-            { label: "About", href: "#about" },
-            { label: "Experience", href: "#experience" },
-            { label: "Education", href: "#education" },
-            { label: "Projects", href: "#projects" },
-            { label: "Skills", href: "#skills" },
-            { label: "Contact", href: "#contact" },
-          ].map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className="font-mono text-xs tracking-widest uppercase text-gray-400 hover:text-green-400 transition-colors relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-green-500 transition-all group-hover:w-full" />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex gap-8 items-center">
+            {[
+              { label: "About", href: "#about" },
+              { label: "Experience", href: "#experience" },
+              { label: "Education", href: "#education" },
+              { label: "Projects", href: "#projects" },
+              { label: "Skills", href: "#skills" },
+              { label: "Contact", href: "#contact" },
+            ].map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  className="font-mono text-xs tracking-widest uppercase text-gray-400 hover:text-green-400 transition-colors relative group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-green-500 transition-all group-hover:w-full" />
+                </a>
+              </li>
+            ))}
+          </ul>
+          
+          <a
+            href="/CV_Ignatius_Filbert_Sevilen.pdf"
+            download="Ignatius_Filbert_Sevilen_CV.pdf"
+            className="px-5 py-2 border border-green-500/30 rounded-full text-green-400 font-mono text-xs tracking-widest uppercase hover:bg-green-500/10 hover:border-green-500 transition-all duration-300"
+          >
+            Resume
+          </a>
+        </div>
 
         <button
           className="md:hidden z-50 px-2 text-white"
