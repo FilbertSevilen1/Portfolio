@@ -4,7 +4,25 @@ import { motion } from "framer-motion";
 import Icon from "@mdi/react";
 import { mdiSchool, mdiMapMarker, mdiChevronRight } from "@mdi/js";
 
-const education = [
+type EducationItem = {
+  degree: string;
+  major: string;
+  abbreviation: string;
+  year: string;
+  institution: string;
+  location: string;
+  gpa?: number;
+  maxGpa?: number;
+  href: string;
+  details: string[];
+};
+
+type EducationCategory = {
+  category: string;
+  items: EducationItem[];
+};
+
+const education: EducationCategory[] = [
   {
     category: "Formal Education",
     items: [
@@ -134,7 +152,7 @@ export default function Education() {
                      </div>
                   </div>
 
-                  {item.gpa && (
+                  {item.gpa && item.maxGpa && (
                     <div className="mb-6 flex items-center gap-4">
                        <span className="text-xs font-bold text-gray-500 uppercase tracking-wider shrink-0">GPA/Score</span>
                        <div className="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
