@@ -17,6 +17,35 @@ import {
 
 const projects = [
   {
+    title: "Moon Trade",
+    description:
+      "Client's Project: A comprehensive trading platform featuring a real-time alert system, membership management, and multi-platform support (Web & Mobile).",
+    year: "2026",
+    tags: ["Next.js", "React Native", "Express.js", "MySQL"],
+    images: [
+      "/images/projects/moon-trade/1.jpg",
+      "/images/projects/moon-trade/11.jpg",
+      "/images/projects/moon-trade/2.jpg",
+      "/images/projects/moon-trade/12.jpg",
+      "/images/projects/moon-trade/3.jpg",
+      "/images/projects/moon-trade/13.jpg",
+      "/images/projects/moon-trade/4.jpg",
+      "/images/projects/moon-trade/14.jpg",
+      "/images/projects/moon-trade/5.jpg",
+      "/images/projects/moon-trade/15.jpg",
+      "/images/projects/moon-trade/6.jpg",
+      "/images/projects/moon-trade/16.jpg",
+      "/images/projects/moon-trade/7.jpg",
+      "/images/projects/moon-trade/17.jpg",
+      "/images/projects/moon-trade/8.jpg",
+      "/images/projects/moon-trade/18.jpg",
+      "/images/projects/moon-trade/9.jpg",
+      "/images/projects/moon-trade/10.jpg"
+    ],
+    link: "",
+    icon: mdiCurrencyUsd,
+  },
+  {
     title: "Holiday-io",
     description:
       "Client's Project: A landing page for a Travel Community. The platform connects travelers to create meaningful friendships and build a global community of adventure.",
