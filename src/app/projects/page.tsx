@@ -217,7 +217,7 @@ export default function ProjectsPage() {
                     <h2 className="text-4xl md:text-6xl font-black italic uppercase mb-4">
                         Project <span className="text-green-500">Registry</span>
                     </h2>
-                    <p className="font-mono text-xs text-white/30 tracking-[0.3em]">Full Archive Index // Total_{projectsData.length}</p>
+                    <p className="font-mono text-xs text-white/30 tracking-[0.3em]">Total Projects: {projectsData.length}</p>
                 </div>
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
