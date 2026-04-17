@@ -26,68 +26,67 @@ export default function FeaturedProjects() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         {featured.map((project, index) => (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="group relative bg-gray-900/40 rounded-3xl overflow-hidden border border-white/5 hover:border-green-500/30 transition-all duration-500"
-          >
-            {/* Image Container */}
-            <div className="aspect-[16/10] relative overflow-hidden">
-              {project.images.length > 0 ? (
-                <img
-                  src={project.images[0]}
-                  alt={project.title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                />
-              ) : (
-                <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-                  <span className="text-white/10 font-black italic">NO IMAGE</span>
-                </div>
-              )}
-
-              {/* Overlay with Preview Button */}
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
-                <Link href="/projects" className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="bg-green-500 text-black px-6 py-3 rounded-full font-black uppercase text-xs tracking-widest flex items-center gap-2 shadow-[0_0_20px_rgba(34,197,94,0.4)]"
-                  >
-                    <Icon path={mdiEyeOutline} size={0.7} />
-                    Preview Project
-                  </motion.div>
-                </Link>
-              </div>
-
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60" />
-            </div>
-
-            <div className="p-8 relative">
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-green-500/10 rounded-lg text-green-500">
-                    <Icon path={project.icon} size={0.8} />
+          <Link href={`/projects?id=${index}`} key={project.title}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative bg-gray-900/40 rounded-3xl overflow-hidden border border-white/5 hover:border-green-500/30 transition-all duration-500 h-full"
+            >
+              {/* Image Container */}
+              <div className="aspect-[16/10] relative overflow-hidden">
+                {project.images.length > 0 ? (
+                  <img
+                    src={project.images[0]}
+                    alt={project.title}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                    <span className="text-white/10 font-black italic">NO IMAGE</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white uppercase italic">{project.title}</h3>
+                )}
+
+                {/* Overlay with Preview Button */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="bg-green-500 text-black px-6 py-3 rounded-full font-black uppercase text-xs tracking-widest flex items-center gap-2 shadow-[0_0_20px_rgba(34,197,94,0.4)]"
+                    >
+                      <Icon path={mdiEyeOutline} size={0.7} />
+                      Preview Project
+                    </motion.div>
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60" />
+              </div>
+
+              <div className="p-8 relative">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-green-500/10 rounded-lg text-green-500">
+                      <Icon path={project.icon} size={0.8} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white uppercase italic">{project.title}</h3>
+                  </div>
+                </div>
+
+                <p className="text-gray-400 text-sm line-clamp-2 mb-6 leading-relaxed font-medium">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.slice(0, 3).map(tag => (
+                    <span key={tag} className="text-[10px] font-mono text-green-500/60 uppercase border border-green-500/10 px-2 py-1 rounded-md bg-green-500/5">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-
-              <p className="text-gray-400 text-sm line-clamp-2 mb-6 leading-relaxed font-medium">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {project.tags.slice(0, 3).map(tag => (
-                  <span key={tag} className="text-[10px] font-mono text-green-500/60 uppercase border border-green-500/10 px-2 py-1 rounded-md bg-green-500/5">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </Link>
         ))}
       </div>
 

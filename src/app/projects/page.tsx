@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Icon from "@mdi/react";
 import { 
@@ -14,8 +15,23 @@ import SciFiBackground from "@/components/SciFiBackground";
 import Navbar from "@/components/Navbar";
 import { projectsData } from "@/data/projects";
 
-export default function ProjectsPage() {
-  const [activeProject, setActiveProject] = useState(0);
+function ProjectsContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const projectId = searchParams.get('id');
+  const initialProject = projectId ? parseInt(projectId) : 0;
+  
+  const [activeProject, setActiveProject] = useState(initialProject);
+
+  useEffect(() => {
+    const id = searchParams.get('id');
+    if (id !== null) {
+      const idx = parseInt(id);
+      if (!isNaN(idx) && idx >= 0 && idx < projectsData.length) {
+        setActiveProject(idx);
+      }
+    }
+  }, [searchParams]);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -97,7 +113,10 @@ export default function ProjectsPage() {
             onClick={() => setPreviewImage(null)}
             className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
           >
-            <button className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors">
+            <button 
+              onClick={() => setPreviewImage(null)}
+              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-50"
+            >
               <Icon path={mdiClose} size={1.5} />
             </button>
             <motion.img
@@ -177,34 +196,47 @@ export default function ProjectsPage() {
                 <div className={`absolute -inset-10 bg-gradient-to-br ${projectsData[activeProject].color || 'from-green-500/20 to-transparent'} blur-[100px] opacity-30`} />
                 
                 <div 
-                    className="relative aspect-[16/10] w-full bg-gray-950 overflow-hidden border border-white/10 shadow-2xl cursor-zoom-in"
-                    onClick={() => setPreviewImage(projectsData[activeProject].images[0])}
+                    className={`relative aspect-[16/10] w-full bg-gray-950 overflow-hidden border border-white/10 shadow-2xl ${projectsData[activeProject].images.length > 0 ? 'cursor-zoom-in' : ''}`}
+                    onClick={() => {
+                        if (projectsData[activeProject].images.length > 0) {
+                            setPreviewImage(projectsData[activeProject].images[0]);
+                        }
+                    }}
                 >
-                    <motion.img 
-                        key={projectsData[activeProject].images[0]}
-                        src={projectsData[activeProject].images[0]}
-                        className="w-full h-full object-cover grayscale-50 group-hover:grayscale-0 transition-all duration-1000"
-                        alt="Project Header"
-                    />
+                    {projectsData[activeProject].images.length > 0 ? (
+                        <motion.img 
+                            key={projectsData[activeProject].images[0]}
+                            src={projectsData[activeProject].images[0]}
+                            className="w-full h-full object-cover grayscale-50 group-hover:grayscale-0 transition-all duration-1000"
+                            alt="Project Header"
+                        />
+                    ) : (
+                        <div className="w-full h-full flex flex-col items-center justify-center space-y-4 opacity-20">
+                            <Icon path={projectsData[activeProject].icon} size={3} />
+                            <span className="font-mono text-sm tracking-[0.2em]">DOCUMENTATION_PENDING</span>
+                        </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
                 </div>
                 
                 {/* Image Strip */}
-                <div 
-                    ref={scrollRef}
-                    className="mt-8 flex gap-4 overflow-x-auto pb-6 scrollbar-visible cursor-grab active:cursor-grabbing select-none"
-                >
-                    {projectsData[activeProject].images.slice(1).map((img, i) => (
-                        <motion.div 
-                            key={i}
-                            whileHover={{ y: -5 }}
-                            className="flex-shrink-0 w-48 md:w-64 aspect-video bg-gray-900 border border-white/10 overflow-hidden cursor-zoom-in shadow-xl"
-                            onClick={() => setPreviewImage(img)}
-                        >
-                            <img src={img} className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity" alt="Subview" />
-                        </motion.div>
-                    ))}
-                </div>
+                {projectsData[activeProject].images.length > 1 && (
+                    <div 
+                        ref={scrollRef}
+                        className="mt-8 flex gap-4 overflow-x-auto pb-6 scrollbar-visible cursor-grab active:cursor-grabbing select-none"
+                    >
+                        {projectsData[activeProject].images.slice(1).map((img, i) => (
+                            <motion.div 
+                                key={i}
+                                whileHover={{ y: -5 }}
+                                className="flex-shrink-0 w-48 md:w-64 aspect-video bg-gray-900 border border-white/10 overflow-hidden cursor-zoom-in shadow-xl"
+                                onClick={() => setPreviewImage(img)}
+                            >
+                                <img src={img} className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity" alt="Subview" />
+                            </motion.div>
+                        ))}
+                    </div>
+                )}
               </div>
             </motion.div>
           </AnimatePresence>
@@ -237,6 +269,7 @@ export default function ProjectsPage() {
                                 transition={{ delay: (i % 4) * 0.1 }}
                                 onClick={() => {
                                     setActiveProject(i);
+                                    router.push(`/projects?id=${i}`, { scroll: false });
                                     window.scrollTo({ top: 0, behavior: 'smooth' });
                                 }}
                                 className={`group relative cursor-pointer overflow-hidden border border-white/5 bg-gray-900 transition-all duration-500 hover:border-green-500/50 ${spans}`}
@@ -311,5 +344,17 @@ export default function ProjectsPage() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function ProjectsPage() {
+  return (
+    <Suspense fallback={
+        <div className="min-h-screen bg-black text-white flex items-center justify-center font-mono uppercase tracking-[0.3em]">
+            Initializing Neural Interface...
+        </div>
+    }>
+      <ProjectsContent />
+    </Suspense>
   );
 }
