@@ -111,7 +111,7 @@ export default function Navbar() {
               className="mt-16 text-green-500 font-mono text-sm tracking-[0.4em] uppercase"
               onClick={() => setIsOpen(false)}
             >
-              [ ABORT_CLOSE ]
+              [ CLOSE ]
             </motion.button>
           </motion.div>
         )}
