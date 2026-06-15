@@ -68,7 +68,7 @@ export default function ExperienceSection() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
     >
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none"  id="experience">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_200px,#00ff4110,transparent)]" />
       </div>
