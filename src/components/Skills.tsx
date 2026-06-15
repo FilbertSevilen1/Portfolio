@@ -3,65 +3,19 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Icon from "@mdi/react";
-import {
-  mdiReact,
-  mdiVuejs,
-  mdiLanguageTypescript,
-  mdiTailwind,
-  mdiLanguageHtml5,
-  mdiNodejs,
-  mdiLanguagePython,
-  mdiDotNet,
-  mdiBottleTonic,
-  mdiDatabase,
-  mdiDocker,
-  mdiAws,
-  mdiGit,
-  mdiMicrosoftAzure,
-  mdiRobot,
-  mdiApi,
-  mdiCodeTags,
-} from "@mdi/js";
 
-const categories = ["Frontend", "Backend", "Database", "DevOps", "AI & Others"];
+import skillsJson from "@/data/skills.json";
+import * as icons from "@mdi/js";
 
-const skillsData: Record<string, { name: string; icon: string }[]> = {
-  "Frontend": [
-    { name: "React", icon: mdiReact },
-    { name: "Vue.js", icon: mdiVuejs },
-    { name: "TypeScript", icon: mdiLanguageTypescript },
-    { name: "Next.js", icon: mdiReact }, // Fallback icon
-    { name: "Nuxt3", icon: mdiVuejs }, // Fallback icon
-    { name: "HTML/CSS", icon: mdiLanguageHtml5 },
-    { name: "Angular.js", icon: mdiCodeTags },
-  ],
-  "Backend": [
-    { name: "Node.js", icon: mdiNodejs },
-    { name: "Python", icon: mdiLanguagePython },
-    { name: "ASP.NET", icon: mdiDotNet },
-    { name: "Flask", icon: mdiBottleTonic },
-    { name: "Express.js", icon: mdiNodejs },
-    { name: "C#", icon: mdiCodeTags },
-  ],
-  "Database": [
-    { name: "SQL Server", icon: mdiDatabase },
-    { name: "MySQL", icon: mdiDatabase },
-    { name: "MongoDB", icon: mdiDatabase },
-  ],
-  "DevOps": [
-    { name: "Docker", icon: mdiDocker },
-    { name: "AWS", icon: mdiAws },
-    { name: "Azure", icon: mdiMicrosoftAzure },
-    { name: "Git", icon: mdiGit },
-  ],
-  "AI & Others": [
-    { name: "Machine Learning (CNN)", icon: mdiRobot },
-    { name: "OCR & Liveness Detection", icon: mdiRobot },
-    { name: "RESTful APIs", icon: mdiApi },
-    { name: "M-Files", icon: mdiCodeTags },
-    { name: "Agile & Scrum", icon: mdiCodeTags },
-  ]
-};
+const categories = skillsJson.categories;
+
+const skillsData: Record<string, { name: string; icon: string }[]> = {};
+for (const [cat, list] of Object.entries(skillsJson.skillsData)) {
+  skillsData[cat] = list.map((item) => ({
+    name: item.name,
+    icon: (icons as any)[item.iconKey] || icons.mdiCodeTags,
+  }));
+}
 
 export default function Skills() {
   const [activeTab, setActiveTab] = useState(categories[0]);

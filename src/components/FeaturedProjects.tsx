@@ -40,7 +40,7 @@ export default function FeaturedProjects() {
                   <img
                     src={project.images[0]}
                     alt={project.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-800 flex items-center justify-center">
@@ -69,17 +69,17 @@ export default function FeaturedProjects() {
                     <div className="p-2 bg-green-500/10 rounded-lg text-green-500">
                       <Icon path={project.icon} size={0.8} />
                     </div>
-                    <h3 className="text-2xl font-bold text-white uppercase italic">{project.title}</h3>
+                    <h3 className="text-2xl font-bold text-white uppercase">{project.title}</h3>
                   </div>
                 </div>
 
-                <p className="text-gray-400 text-sm line-clamp-2 mb-6 leading-relaxed font-medium">
+                <p className="text-gray-300 text-sm md:text-base line-clamp-2 mb-6 leading-relaxed font-medium">
                   {project.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.slice(0, 3).map(tag => (
-                    <span key={tag} className="text-[10px] font-mono text-green-500/60 uppercase border border-green-500/10 px-2 py-1 rounded-md bg-green-500/5">
+                    <span key={tag} className="text-xs md:text-sm font-mono text-green-400 uppercase border border-green-500/20 px-2.5 py-1 rounded-md bg-green-500/10">
                       {tag}
                     </span>
                   ))}

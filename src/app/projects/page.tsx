@@ -153,14 +153,12 @@ function ProjectsContent() {
                     className="w-20 h-1 bg-green-500 mb-8 origin-left"
                   />
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="font-mono text-green-500 text-sm tracking-[0.3em] uppercase italic">Operation_0{activeProject + 1}</span>
+                    <span className="font-mono text-green-500 text-sm tracking-[0.2em] uppercase">Project // 0{activeProject + 1}</span>
                     <span className="h-px w-12 bg-white/20" />
                     <span className="font-mono text-white/40 text-sm uppercase tracking-widest">{projectsData[activeProject].year}</span>
                   </div>
-                  <h1 className="text-5xl md:text-[6rem] font-black italic uppercase tracking-tighter leading-[0.85] mb-8">
-                    {projectsData[activeProject].title.split(' ').map((word, i) => (
-                        <span key={i} className={i % 2 === 1 ? "text-green-500/90" : "text-white"}>{word} </span>
-                    ))}
+                  <h1 className="text-4xl md:text-6xl font-extrabold text-white uppercase tracking-tight leading-tight mb-8">
+                    {projectsData[activeProject].title}
                   </h1>
                   <p className="text-xl text-gray-400 leading-relaxed max-w-xl font-medium">
                     {projectsData[activeProject].description}
@@ -207,7 +205,7 @@ function ProjectsContent() {
                         <motion.img 
                             key={projectsData[activeProject].images[0]}
                             src={projectsData[activeProject].images[0]}
-                            className="w-full h-full object-cover grayscale-50 group-hover:grayscale-0 transition-all duration-1000"
+                            className="w-full h-full object-cover transition-all duration-1000"
                             alt="Project Header"
                         />
                     ) : (
@@ -232,7 +230,7 @@ function ProjectsContent() {
                                 className="flex-shrink-0 w-48 md:w-64 aspect-video bg-gray-900 border border-white/10 overflow-hidden cursor-zoom-in shadow-xl"
                                 onClick={() => setPreviewImage(img)}
                             >
-                                <img src={img} className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity" alt="Subview" />
+                                <img src={img} className="w-full h-full object-cover transition-opacity" alt="Subview" />
                             </motion.div>
                         ))}
                     </div>
@@ -279,7 +277,7 @@ function ProjectsContent() {
                                     <div className="absolute inset-0 z-0">
                                         <img 
                                             src={project.images[0]} 
-                                            className="w-full h-full object-cover grayscale opacity-20 group-hover:opacity-40 group-hover:grayscale-0 transition-all duration-700" 
+                                            className="w-full h-full object-cover opacity-40 group-hover:opacity-75 transition-all duration-700" 
                                             alt=""
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -295,7 +293,7 @@ function ProjectsContent() {
                                     </div>
                                     
                                     <div>
-                                        <h3 className="text-xl font-bold uppercase italic mb-2 group-hover:text-green-400 transition-colors line-clamp-2 leading-tight">
+                                        <h3 className="text-xl font-bold uppercase mb-2 group-hover:text-green-400 transition-colors line-clamp-2 leading-tight">
                                             {project.title}
                                         </h3>
                                         <div className="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">

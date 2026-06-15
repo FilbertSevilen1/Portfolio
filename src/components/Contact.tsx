@@ -2,73 +2,65 @@
 
 import { motion } from "framer-motion";
 import Icon from "@mdi/react";
-import {
-  mdiEmail,
-  mdiGithub,
-  mdiLinkedin,
-  mdiMapMarker,
-  mdiEarth,
-  mdiPhone,
-  mdiInstagram,
-  mdiGamepadVariant,
-} from "@mdi/js";
+import * as icons from "@mdi/js";
+import profileData from "@/data/profile.json";
 
 export default function Contact() {
   const contacts = [
     {
       type: "Email",
-      icon: mdiEmail,
-      href: "mailto:sevilenfilbert@gmail.com",
-      text: "sevilenfilbert@gmail.com",
+      icon: icons.mdiEmail,
+      href: `mailto:${profileData.socials.email}`,
+      text: profileData.socials.email,
     },
     {
       type: "Phone",
-      icon: mdiPhone,
-      href: "tel:+6282122848688",
+      icon: icons.mdiPhone,
+      href: `tel:${profileData.socials.phone}`,
       text: "+62 821 2284 8688",
     },
     {
       type: "GitHub",
-      icon: mdiGithub,
-      href: "https://github.com/FilbertSevilen1",
+      icon: icons.mdiGithub,
+      href: profileData.socials.github,
       external: true,
       text: "FilbertSevilen1",
     },
     {
       type: "LinkedIn",
-      icon: mdiLinkedin,
-      href: "https://www.linkedin.com/in/ignatius-filbert-sevilen-894467231/",
+      icon: icons.mdiLinkedin,
+      href: profileData.socials.linkedin,
       external: true,
       text: "Filbert Sevilen",
     },
     {
       type: "Instagram",
-      icon: mdiInstagram,
-      href: "https://instagram.com/filbert.sevilen",
+      icon: icons.mdiInstagram,
+      href: profileData.socials.instagram,
       external: true,
       text: "@filbert.sevilen",
     },
     {
       type: "Discord",
-      icon: mdiGamepadVariant,
-      href: "https://discord.com/users/kazeden1",
+      icon: icons.mdiGamepadVariant,
+      href: profileData.socials.discord,
       external: true,
       text: "kazeden1",
     },
     {
       type: "Location",
-      icon: mdiMapMarker,
-      text: "Jakarta, Indonesia",
+      icon: icons.mdiMapMarker,
+      text: profileData.location,
     },
     {
       type: "Nationality",
-      icon: mdiEarth,
+      icon: icons.mdiEarth,
       text: "Indonesian",
     },
   ];
 
   return (
-    <section>
+    <section id="contact" className="scroll-mt-32">
       <div className="relative mb-12">
         <motion.div
           initial={{ scaleX: 0 }}
@@ -112,7 +104,7 @@ export default function Contact() {
                     <Icon path={contact.icon} size={1} className="text-white group-hover:text-green-400" />
                   </div>
                   <div>
-                    <span className="block text-[10px] font-mono text-green-500/40 uppercase group-hover:text-green-500/60">{contact.type}</span>
+                    <span className="block text-xs md:text-sm font-mono text-green-400/70 uppercase group-hover:text-green-400">{contact.type}</span>
                     <span className="text-sm md:text-base font-bold text-gray-300 group-hover:text-white transition-colors">{contact.text || contact.type}</span>
                   </div>
                 </div>
@@ -124,7 +116,7 @@ export default function Contact() {
                   <Icon path={contact.icon} size={1} className="text-white" />
                 </div>
                 <div>
-                  <span className="block text-[10px] font-mono text-green-500/40 uppercase">{contact.type}</span>
+                  <span className="block text-xs md:text-sm font-mono text-green-400/70 uppercase">{contact.type}</span>
                   <span className="text-sm md:text-base font-bold text-gray-300">{contact.text || contact.type}</span>
                 </div>
               </div>

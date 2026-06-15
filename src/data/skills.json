@@ -1,0 +1,40 @@
+{
+  "categories": ["Frontend", "Backend", "Database", "DevOps", "AI & Others"],
+  "skillsData": {
+    "Frontend": [
+      { "name": "React", "iconKey": "mdiReact" },
+      { "name": "Vue.js", "iconKey": "mdiVuejs" },
+      { "name": "TypeScript", "iconKey": "mdiLanguageTypescript" },
+      { "name": "Next.js", "iconKey": "mdiReact" },
+      { "name": "Nuxt3", "iconKey": "mdiVuejs" },
+      { "name": "HTML/CSS", "iconKey": "mdiLanguageHtml5" },
+      { "name": "Angular.js", "iconKey": "mdiCodeTags" }
+    ],
+    "Backend": [
+      { "name": "Node.js", "iconKey": "mdiNodejs" },
+      { "name": "Python", "iconKey": "mdiLanguagePython" },
+      { "name": "ASP.NET", "iconKey": "mdiDotNet" },
+      { "name": "Flask", "iconKey": "mdiBottleTonic" },
+      { "name": "Express.js", "iconKey": "mdiNodejs" },
+      { "name": "C#", "iconKey": "mdiCodeTags" }
+    ],
+    "Database": [
+      { "name": "SQL Server", "iconKey": "mdiDatabase" },
+      { "name": "MySQL", "iconKey": "mdiDatabase" },
+      { "name": "MongoDB", "iconKey": "mdiDatabase" }
+    ],
+    "DevOps": [
+      { "name": "Docker", "iconKey": "mdiDocker" },
+      { "name": "AWS", "iconKey": "mdiAws" },
+      { "name": "Azure", "iconKey": "mdiMicrosoftAzure" },
+      { "name": "Git", "iconKey": "mdiGit" }
+    ],
+    "AI & Others": [
+      { "name": "Machine Learning (CNN)", "iconKey": "mdiRobot" },
+      { "name": "OCR & Liveness Detection", "iconKey": "mdiRobot" },
+      { "name": "RESTful APIs", "iconKey": "mdiApi" },
+      { "name": "M-Files", "iconKey": "mdiCodeTags" },
+      { "name": "Agile & Scrum", "iconKey": "mdiCodeTags" }
+    ]
+  }
+}

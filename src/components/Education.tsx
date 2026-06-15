@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Icon from "@mdi/react";
 import { mdiSchool, mdiMapMarker, mdiChevronRight } from "@mdi/js";
 
+import educationData from "@/data/education.json";
+
 type EducationItem = {
   degree: string;
   major: string;
@@ -22,62 +24,7 @@ type EducationCategory = {
   items: EducationItem[];
 };
 
-const education: EducationCategory[] = [
-  {
-    category: "Formal Education",
-    items: [
-      {
-        degree: "Bachelor of Computer Science",
-        major: "Interactive Multimedia Streaming",
-        abbreviation: "U",
-        year: "2020 – 2024",
-        institution: "BINUS University",
-        location: "Jakarta, Indonesia",
-        gpa: 3.92,
-        maxGpa: 4.0,
-        href: "https://www.binus.ac.id",
-        details: [
-          "Graduated with Summa cum Laude honors, demonstrating exceptional academic performance and dedication.",
-          "Completed comprehensive coursework in computer science principles and interactive multimedia technologies.",
-          "Developed a thesis on equipment management application design for office work activities to streamline administrative workflows.",
-        ],
-      },
-      {
-        degree: "Senior High School",
-        major: "Science Major",
-        abbreviation: "S",
-        year: "2017 – 2020",
-        institution: "Canisius College",
-        location: "Jakarta, Indonesia",
-        gpa: 91,
-        maxGpa: 100,
-        href: "https://kanisius.sch.id/",
-        details: [
-          "Graduated with Magna cum Laude honors with a strong foundation in analytical and scientific reasoning.",
-          "Actively participated in rigorous academic programs shaping critical thinking and problem-solving skills.",
-        ],
-      },
-    ],
-  },
-  {
-    category: "Certifications & Credentials",
-    items: [
-      {
-        degree: "Web Developer Bootcamp",
-        major: "Full-Stack Web Development",
-        abbreviation: "P",
-        year: "2022",
-        institution: "Purwadhika Digital Technology School",
-        location: "Online",
-        href: "https://purwadhika.com/",
-        details: [
-          "Intensive full-stack program covering HTML, CSS, JavaScript, React.js, Node.js, and SQL.",
-          "Developed practical applications including a Pharmacy Management App and a Social Media Post Scheduler.",
-        ],
-      },
-    ],
-  },
-];
+const education = educationData as EducationCategory[];
 
 export default function Education() {
   return (
@@ -141,20 +88,20 @@ export default function Education() {
                      </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm text-gray-400 mb-6 font-medium">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm md:text-base text-gray-300 mb-6 font-medium">
                      <div className="flex items-center gap-1.5">
-                       <Icon path={mdiSchool} size={0.6} className="opacity-70" />
+                       <Icon path={mdiSchool} size={0.8} className="opacity-70" />
                        <span>{item.institution}</span>
                      </div>
                      <div className="flex items-center gap-1.5">
-                       <Icon path={mdiMapMarker} size={0.6} className="opacity-70" />
+                       <Icon path={mdiMapMarker} size={0.8} className="opacity-70" />
                        <span>{item.location}</span>
                      </div>
                   </div>
 
                   {item.gpa && item.maxGpa && (
                     <div className="mb-6 flex items-center gap-4">
-                       <span className="text-xs font-bold text-gray-500 uppercase tracking-wider shrink-0">GPA/Score</span>
+                       <span className="text-xs md:text-sm font-bold text-gray-300 uppercase tracking-wider shrink-0">GPA/Score</span>
                        <div className="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
                           <motion.div 
                             initial={{ width: 0 }}
@@ -169,8 +116,8 @@ export default function Education() {
 
                   <div className="flex flex-col gap-3 mt-auto">
                     {item.details.map((detail, j) => (
-                      <div key={j} className="flex gap-2 text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
-                        <Icon path={mdiChevronRight} size={0.7} className="text-green-500 shrink-0 mt-0.5" />
+                      <div key={j} className="flex gap-2 text-gray-300 text-sm md:text-base group-hover:text-gray-200 transition-colors">
+                        <Icon path={mdiChevronRight} size={0.8} className="text-green-500 shrink-0 mt-0.5" />
                         <p className="leading-relaxed">{detail}</p>
                       </div>
                     ))}

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import profileData from "@/data/profile.json";
 
 export default function About() {
   return (
@@ -47,15 +48,11 @@ export default function About() {
           </div>
 
           <div className="leading-relaxed space-y-6 md:pl-4 md:border-l-2 md:border-gray-800/50">
-            <p>
-              <span className="text-green-400 font-bold">Full Stack Engineer</span> with expertise in building scalable, user-focused web applications and AI-driven solutions.
-            </p>
-            <p>
-              Proficient in both front-end and back-end technologies, including <span className="text-red-400">Angular.js</span>, <span className="text-green-500">Vue.js</span>, <span className="text-white">Next.js</span>, <span className="text-gray-400">Flask</span>, <span className="text-yellow-400">Express.js</span>, and <span className="text-purple-500">.NET</span>.
-            </p>
-            <p>
-              Eager to contribute to innovative projects by delivering high-quality, efficient, and maintainable solutions that drive business growth, improve user experience, and solve complex technical challenges in a collaborative environment.
-            </p>
+            {profileData.bioParagraphs.map((para, idx) => (
+              <p key={idx}>
+                {para}
+              </p>
+            ))}
           </div>
 
           <div className="flex items-center gap-2 mt-8">

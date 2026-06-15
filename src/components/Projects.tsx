@@ -314,7 +314,7 @@ export default function Projects() {
                 <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter flex items-center gap-4">
                   {selected.title}
                 </h3>
-                <p className="font-mono text-green-500/60 text-lg uppercase tracking-widest">{selected.year}</p>
+                <p className="font-mono text-green-400 text-lg uppercase tracking-widest">{selected.year}</p>
               </div>
 
               {selected.images.length > 0 && (
@@ -415,7 +415,7 @@ export default function Projects() {
                             {project.title}
                           </h3>
                         </div>
-                        <p className={`text-gray-400 text-sm leading-relaxed mb-4 transition-all duration-500 ${index % 4 === 0 ? "line-clamp-4" : "line-clamp-2"}`}>
+                        <p className={`text-gray-300 text-sm md:text-base leading-relaxed mb-4 transition-all duration-500 ${index % 4 === 0 ? "line-clamp-4" : "line-clamp-2"}`}>
                           {project.description}
                         </p>
                       </div>
@@ -423,7 +423,7 @@ export default function Projects() {
                       <div className="space-y-4">
                         <div className="flex flex-wrap gap-2">
                           {project.tags?.slice(0, 3).map((tag) => (
-                            <span key={tag} className="px-2 py-0.5 border border-green-500/20 rounded-full text-[10px] font-mono text-green-500/60 uppercase">
+                            <span key={tag} className="px-2.5 py-0.5 border border-green-500/20 rounded-full text-xs md:text-sm font-mono text-green-400 uppercase bg-green-500/10">
                               {tag}
                             </span>
                           ))}

@@ -42,26 +42,6 @@ body {
 }
 
 body {
-  background: linear-gradient(
-    -45deg,
-    rgb(20, 50, 20),
-    #000,
-    rgb(20, 50, 20),
-    #000
-  );
-  background-size: 200% 200%;
-  animation: gradientShift 16s infinite;
+  background-color: #000000;
   color: white;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 50% 50%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 50% 50%;
-  }
 }

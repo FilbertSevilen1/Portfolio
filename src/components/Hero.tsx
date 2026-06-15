@@ -1,122 +1,160 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-
-const sentences = ["Full Stack Engineer", "Bachelor of Computer Science"];
-const name = "Ignatius Filbert Sevilen";
+import Icon from "@mdi/react";
+import * as icons from "@mdi/js";
+import profileData from "@/data/profile.json";
 
 export default function Hero() {
-  const [displayedName, setDisplayedName] = useState("");
-  const [displayedText, setDisplayedText] = useState("");
-  const [textIndex, setTextIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [nameTyped, setNameTyped] = useState(false);
-
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayedName(name.substring(0, i + 1));
-      i++;
-      if (i === name.length) {
-        clearInterval(interval);
-        setNameTyped(true);
-      }
-    }, 50);
-    return () => clearInterval(interval);
-  }, []);
-
-
-  useEffect(() => {
-    if (!nameTyped) return;
-
-    const fullText = sentences[textIndex];
-    let typingSpeed = isDeleting ? 50 : 100;
-
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        setDisplayedText(fullText.substring(0, displayedText.length + 1));
-        if (displayedText.length + 1 === fullText.length) {
-          setTimeout(() => setIsDeleting(true), 3000);
-        }
-      } else {
-        setDisplayedText(fullText.substring(0, displayedText.length - 1));
-        if (displayedText.length === 0) {
-          setIsDeleting(false);
-          setTextIndex((prev) => (prev + 1) % sentences.length);
-        }
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, textIndex, nameTyped]);
+  const handleScrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
-    <section className="relative min-h-[80vh] flex flex-col-reverse md:flex-row items-center justify-between py-20 overflow-hidden">
-      {/* Background HUD Decor */}
-      <div className="absolute inset-0 pointer-events-none opacity-10">
-        <div className="absolute top-0 left-0 w-64 h-64 border-l-2 border-t-2 border-green-500/30" />
-        <div className="absolute bottom-0 right-0 w-64 h-64 border-r-2 border-b-2 border-green-500/30" />
+    <section 
+      id="hero" 
+      className="relative min-h-[95vh] flex items-center pt-24 pb-12 lg:pt-36 lg:pb-0 lg:overflow-hidden scroll-mt-32 lg:-mt-[150px]"
+    >
+      {/* Dynamic ambient grid overlay & radial glow */}
+      <div className="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-green-500/[0.03] blur-[150px] rounded-full pointer-events-none" />
+
+      {/* Large desktop-only absolute portrait (sitting in the center z-0 layer) */}
+      <div className="hidden lg:flex absolute left-1/2 bottom-0 -translate-x-1/2 z-0 h-[88%] items-end justify-center pointer-events-none">
+        <img 
+          src="/images/profile.webp" 
+          alt="Ignatius Filbert Sevilen" 
+          className="object-cover h-full w-auto max-h-[82vh] object-top rounded-b-none transition-transform duration-700 hover:scale-[1.02]"
+        />
+        {/* Soft black mask at the bottom to blend portrait base with background */}
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#030604] to-transparent" />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-center md:items-start my-4 z-10"
-      >
-
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter uppercase italic text-white leading-tight">
-          Hi, I'm{" "}
-          <span className="text-green-500 relative inline-block">
-            {displayedName}
-          </span>
-        </h1>
-
-        <div className="mt-8 p-4 bg-gray-900/30 backdrop-blur-sm border-l-4 border-green-500 relative group overflow-hidden">
-          <div className="absolute inset-0 bg-green-500/5 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
-          <p className="text-xl md:text-3xl font-mono text-gray-300 relative z-10">
-            <span className="text-white font-bold">{displayedText}</span>
-          </p>
-        </div>
-
+      <div className="w-full grid grid-cols-12 gap-8 items-end z-10 h-full relative">
+        
+        {/* LEFT COLUMN: Large Typography & Action (re-positioned z-10) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="mt-12 flex gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="col-span-12 lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left h-full justify-center pb-0 lg:pb-12"
         >
-          <a href="#projects" className="px-8 py-3 bg-green-500 text-black font-black uppercase tracking-widest hover:bg-green-400 transition-all shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]">
-            View Projects
-          </a>
-          <a href="#contact" className="px-8 py-3 border border-green-500 text-green-500 font-black uppercase tracking-widest hover:bg-green-500/10 transition-all">
-            Contact Me
-          </a>
+          {/* Top Line Accent */}
+          <div className="w-24 h-1 bg-white mb-10 rounded-full" />
+
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-light tracking-tight leading-[1.05] text-white font-bold">
+            I'm Filbert, a <br />
+            <span className="font-extrabold text-green-500">Full Stack Developer</span>
+          </h1>
+
+          {/* Tagline - Increased contrast to text-gray-100 and size to text-base md:text-lg */}
+          <p className="text-gray-100 text-base md:text-lg leading-relaxed mt-8 max-w-md font-medium">
+            {profileData.valueProposition}
+          </p>
+
+          {/* Down Chevron Button */}
+          <button 
+            onClick={() => handleScrollTo("about")}
+            className="group w-16 h-16 bg-green-500 hover:bg-green-400 text-black flex items-center justify-center rounded-full mt-12 transition-all duration-300 shadow-[0_4px_20px_rgba(34,197,94,0.35)] hover:shadow-[0_4px_30px_rgba(34,197,94,0.5)]"
+            title="Scroll Down"
+          >
+            <Icon 
+              path={icons.mdiChevronDown} 
+              size={1.5} 
+              className="transition-transform duration-300 group-hover:translate-y-1" 
+            />
+          </button>
         </motion.div>
-      </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={{ duration: 1, ease: "backOut" }}
-        className="my-8 relative group"
-      >
-        {/* Glow behind image */}
-        <div className="absolute inset-0 bg-green-500/20 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-        <div className="relative z-10 p-2 border-2 border-dashed border-green-500/30 group-hover:border-green-500 transition-all duration-500">
-          <img
-            src="/images/profile.webp"
-            alt="Ignatius Filbert Sevilen - Full Stack Engineer"
-            className="object-contain w-64 h-64 md:w-80 md:h-80 bg-gray-900 shadow-2xl transition-all duration-700"
+        {/* MOBILE-ONLY Portrait Image (retains normal flow on mobile) */}
+        <div className="col-span-12 lg:hidden flex justify-center items-end relative my-6">
+          <img 
+            src="/images/profile.webp" 
+            alt="Ignatius Filbert Sevilen" 
+            className="object-cover w-full max-w-[280px] aspect-[3/4] object-top rounded-b-none"
           />
         </div>
 
-        {/* HUD Elements around image */}
-        <div className="absolute -top-4 -right-4 w-12 h-12 border-t-2 border-r-2 border-green-500/50 animate-pulse" />
-        <div className="absolute -bottom-4 -left-4 w-12 h-12 border-b-2 border-l-2 border-green-500/50 animate-pulse" />
-      </motion.div>
+        {/* RIGHT COLUMN: Details & Connections (re-positioned z-10) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.15 }}
+          className="col-span-12 lg:col-span-4 lg:col-start-9 flex flex-col justify-center h-full pb-0 lg:pb-12 text-left w-full pl-0 lg:pl-4 space-y-8"
+        >
+          {/* About Me Block - Increased text sizing and contrast */}
+          <div className="space-y-3 pb-6 border-b border-white/10">
+            <h4 className="text-xs md:text-sm font-mono tracking-[0.25em] text-green-400 uppercase font-black">ABOUT ME</h4>
+            <p className="text-gray-100 text-sm md:text-base leading-relaxed font-normal">
+              Full Stack Engineer with expertise in building scalable, user-focused web applications and AI-driven solutions. Summa cum Laude graduate.
+            </p>
+            <button 
+              onClick={() => handleScrollTo("about")}
+              className="group flex items-center gap-2 text-xs md:text-sm font-mono tracking-[0.2em] text-white hover:text-green-400 font-bold uppercase transition-colors border-b border-white/30 hover:border-green-400 pb-1 mt-2.5 w-fit"
+            >
+              LEARN MORE <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </button>
+          </div>
+
+          {/* My Work Block - Increased text sizing and contrast */}
+          <div className="space-y-3 pb-6 border-b border-white/10">
+            <h4 className="text-xs md:text-sm font-mono tracking-[0.25em] text-green-400 uppercase font-black">MY WORK</h4>
+            <p className="text-gray-100 text-sm md:text-base leading-relaxed font-normal">
+              Explore my commercial contracts and personal web systems, featuring the new e-commerce building materials platform, Masamas.
+            </p>
+            <button 
+              onClick={() => handleScrollTo("projects")}
+              className="group flex items-center gap-2 text-xs md:text-sm font-mono tracking-[0.2em] text-white hover:text-green-400 font-bold uppercase transition-colors border-b border-white/30 hover:border-green-400 pb-1 mt-2.5 w-fit"
+            >
+              BROWSE PORTFOLIO <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </button>
+          </div>
+
+          {/* Follow Me Block - Increased sizes */}
+          <div className="space-y-4">
+            <h4 className="text-xs md:text-sm font-mono tracking-[0.25em] text-green-400 uppercase font-black">FOLLOW ME</h4>
+            <div className="flex items-center gap-6 text-gray-300">
+              <a 
+                href={profileData.socials.github} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-green-400 transition-colors duration-300"
+                title="GitHub"
+              >
+                <Icon path={icons.mdiGithub} size={1.1} />
+              </a>
+              <a 
+                href={profileData.socials.linkedin} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-green-400 transition-colors duration-300"
+                title="LinkedIn"
+              >
+                <Icon path={icons.mdiLinkedin} size={1.1} />
+              </a>
+              <a 
+                href={profileData.socials.instagram} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-green-400 transition-colors duration-300"
+                title="Instagram"
+              >
+                <Icon path={icons.mdiInstagram} size={1.1} />
+              </a>
+              <a 
+                href={`mailto:${profileData.socials.email}`}
+                className="hover:text-green-400 transition-colors duration-300"
+                title="Email"
+              >
+                <Icon path={icons.mdiEmail} size={1.1} />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+
+      </div>
     </section>
   );
 }

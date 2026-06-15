@@ -37,10 +37,10 @@ export default function Navbar() {
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className={`font-mono text-xs tracking-widest uppercase transition-all relative group flex items-center gap-2 ${
+                  className={`font-mono text-xs md:text-sm tracking-widest uppercase transition-all relative group flex items-center gap-2 ${
                     item.highlight 
                       ? "text-green-500 font-bold px-3 py-1 border border-green-500/30 rounded-full bg-green-500/5 hover:bg-green-500/20" 
-                      : "text-gray-400 hover:text-green-400"
+                      : "text-gray-300 hover:text-green-400"
                   }`}
                 >
                   {item.label}
@@ -55,7 +55,7 @@ export default function Navbar() {
           <a
             href="/CV_Ignatius_Filbert_Sevilen.pdf"
             download="Ignatius_Filbert_Sevilen_CV.pdf"
-            className="px-5 py-2 border border-green-500/30 rounded-full text-green-400 font-mono text-xs tracking-widest uppercase hover:bg-green-500/10 hover:border-green-500 transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.1)]"
+            className="px-5 py-2 border border-green-500/30 rounded-full text-green-400 font-mono text-xs md:text-sm tracking-widest uppercase hover:bg-green-500/10 hover:border-green-500 transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.1)]"
           >
             Resume
           </a>

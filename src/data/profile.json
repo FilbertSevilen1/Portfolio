@@ -1,0 +1,22 @@
+{
+  "name": "Ignatius Filbert Sevilen",
+  "title": "Full Stack Engineer",
+  "subtitle": "AI Integration Specialist",
+  "valueProposition": "Architecting high-performance web systems and AI-driven automation. I combine full-stack engineering with scalable backend infrastructure to deliver secure, data-intensive digital products.",
+  "bio": "Full Stack Engineer with expertise in building scalable, user-focused web applications and AI-driven solutions. Proficient in both front-end and back-end technologies, including Next.js, Vue.js, Angular, Express.js, Flask, and .NET. Eager to contribute to innovative projects by delivering high-quality, efficient, and maintainable solutions that drive business growth and solve complex technical challenges.",
+  "bioParagraphs": [
+    "Full Stack Engineer with expertise in building scalable, user-focused web applications and AI-driven solutions.",
+    "Proficient in both front-end and back-end technologies, including Next.js, Vue.js, Angular, Express.js, Flask, and .NET.",
+    "Eager to contribute to innovative projects by delivering high-quality, efficient, and maintainable solutions that drive business growth, improve user experience, and solve complex technical challenges in a collaborative environment."
+  ],
+  "location": "Jakarta, Indonesia",
+  "cvPath": "/CV_Ignatius_Filbert_Sevilen.pdf",
+  "socials": {
+    "github": "https://github.com/FilbertSevilen1",
+    "linkedin": "https://www.linkedin.com/in/ignatius-filbert-sevilen-894467231/",
+    "instagram": "https://instagram.com/filbert.sevilen",
+    "discord": "https://discord.com/users/kazeden1",
+    "email": "sevilenfilbert@gmail.com",
+    "phone": "+6282122848688"
+  }
+}

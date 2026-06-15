@@ -1,74 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const experiences = [
-  {
-    company: "Maybank Finance",
-    role: "Full-Stack Engineer",
-    type: "Full-time",
-    period: "Jul 2024 – Sept 2025",
-    logo: "/images/logo/mayfin.webp",
-    href: "https://www.maybankfinance.co.id",
-    details: [
-      "Built an internal LLM portal and API using ASP.NET and Vue.js.",
-      "Led a notification CMS project capable of sending 100k+ customer broadcasts via Python.",
-      "Modernized deployment workflows by migrating to Docker and Jenkins CI/CD.",
-      "Developed Python/Flask OCR system using CNN for automated KTP processing.",
-      "Engineered liveness detection for enhanced facial recognition security.",
-      "Maintained key business portals including Service Support, Car Auction, and Sales websites.",
-    ],
-  },
-  {
-    company: "Dope Race",
-    role: "E-commerce Operations & Optimization Specialist",
-    type: "Part-time",
-    period: "Jul 2025 – Present",
-    logo: "/images/logo/doperace.webp",
-    href: "https://doperace.com/",
-    details: [
-      "Optimized product data and strategy across Amazon, eBay, and Shopify.",
-      "Improved organic visibility via SEO-driven descriptions and keyword execution.",
-      "Analyzed user metrics to implement data-backed performance enhancements.",
-      "Aligned visual assets and pricing integrity to maximize platform conversion.",
-    ],
-  },
-  {
-    company: "Cosmic Marketing Corporation (Rota Usa)",
-    role: "Full-Stack Developer Freelance",
-    type: "Part-time",
-    period: "Jan 2024 – Present",
-    logo: "/images/logo/cosmic.webp",
-    href: "https://www.rotausa.com/",
-    details: [
-      "Developed robust business websites using React.js, Node.js, and MySQL.",
-      "Managed marketplace product listings, adjusting pricing and content to boost visibility.",
-    ],
-  },
-  {
-    company: "Maybank Finance",
-    role: "Software Developer Intern",
-    type: "Full-time",
-    period: "Feb 2023 – Feb 2024",
-    logo: "/images/logo/mayfin.webp",
-    href: "https://www.maybankfinance.co.id",
-    details: [
-      "Maintained and enhanced core enterprise applications using Vue.js and ASP.NET.",
-      "Revamped the UI/UX for the company's corporate identity website utilizing Nuxt 3.",
-      "Built a secure internal voucher redemption approval portal.",
-    ],
-  },
-];
+import experiences from "@/data/experiences.json";
 
 export default function ExperienceSection() {
   return (
     <motion.section
-      className="relative overflow-hidden font-sans selection:bg-green-500/30 selection:text-green-400"
+      id="experience"
+      className="relative overflow-hidden font-sans selection:bg-green-500/30 selection:text-green-400 scroll-mt-32"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
     >
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none"  id="experience">
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_200px,#00ff4110,transparent)]" />
       </div>
@@ -91,7 +35,7 @@ export default function ExperienceSection() {
 
         {/* TIMELINE HUB */}
         <div className="relative">
-          {/* Central Vertical Line - More subtle */}
+          {/* Central Vertical Line */}
           <div className="absolute left-[15px] md:left-1/2 md:ml-[-0.5px] top-0 bottom-0 w-[1px] bg-green-500/20 block" />
 
           <div className="space-y-24">
@@ -139,10 +83,10 @@ export default function ExperienceSection() {
                             {exp.role}
                           </h3>
                           <div className={`flex flex-wrap gap-2 mt-1 ${index % 2 === 0 ? 'justify-start' : 'md:justify-end justify-start'}`}>
-                            <p className="text-green-500 font-mono text-xs tracking-widest uppercase font-bold">
+                            <p className="text-green-500 font-mono text-xs md:text-sm tracking-widest uppercase font-bold">
                               {exp.company}
                             </p>
-                            <p className="text-gray-400 font-mono text-xs">
+                            <p className="text-gray-300 font-mono text-xs md:text-sm">
                               {exp.period}
                             </p>
                           </div>
@@ -151,8 +95,8 @@ export default function ExperienceSection() {
 
                       <ul className={`mt-8 space-y-4 ${index % 2 === 0 ? '' : 'md:flex md:flex-col md:items-end'} relative z-10`}>
                         {exp.details.map((detail, i) => (
-                          <li key={i} className={`flex gap-3 text-gray-400 group-hover/card:text-gray-200 transition-all duration-300 text-sm md:text-base ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
-                            <span className="text-green-500 font-mono mt-1 shrink-0 text-xs mt-[6px] opacity-20">[{i + 1}]</span>
+                          <li key={i} className={`flex gap-3 text-gray-300 group-hover/card:text-gray-100 transition-all duration-300 text-sm md:text-base ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+                            <span className="text-green-500 font-mono mt-1 shrink-0 text-xs mt-[6px] opacity-70">[{i + 1}]</span>
                             <p className={index % 2 === 0 ? 'text-left' : 'md:text-right text-left leading-relaxed'}>{detail}</p>
                           </li>
                         ))}
@@ -168,20 +112,6 @@ export default function ExperienceSection() {
           </div>
         </div>
       </div>
-
-      {/* HUD OVERLAY ELEMENTS - MINIMAL */}
-      <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden hidden lg:block select-none opacity-40">
-        <div className="absolute bottom-10 left-10 w-20 h-[1px] bg-green-500/20" />
-        <div className="absolute bottom-10 left-10 h-20 w-[1px] bg-green-500/20" />
-        <div className="absolute top-10 right-10 w-20 h-[1px] bg-green-500/20" />
-        <div className="absolute top-10 right-10 h-20 w-[1px] bg-green-500/20" />
-      </div>
-
-      <style jsx>{`
-        .stroke-white {
-          -webkit-text-stroke: 1px rgba(255,255,255,0.1);
-        }
-      `}</style>
     </motion.section>
   );
 }
