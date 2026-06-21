@@ -183,7 +183,7 @@ const projects = [
   {
     title: "ZedWheels Website",
     description:
-      "Freelance Project – Cosmic Marketing Corporation: Developed a high-performance e-commerce platform for aftermarket wheels with dynamic product listings, variant selection, and smooth navigation.",
+      "Freelance Project – Dope Race: Developed a high-performance e-commerce platform for aftermarket wheels with dynamic product listings, variant selection, and smooth navigation.",
     year: "2025",
     tags: ["Next.js", "MySQL", "Express.js", "UI/UX"],
     images: [

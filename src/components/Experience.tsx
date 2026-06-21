@@ -73,7 +73,7 @@ export default function ExperienceSection() {
 
                       <div className={`flex flex-col ${index % 2 === 0 ? 'items-start' : 'md:items-end items-start'} gap-4`}>
                         {exp.logo && (
-                          <div className="relative h-16 w-16 bg-black p-2 border border-white/10 group-hover/card:border-green-500 transition-all">
+                          <div className={`relative h-16 w-16 p-2 border border-white/10 group-hover/card:border-green-500 transition-all ${exp.logo?.includes('doperace') ? 'bg-white' : 'bg-black'}`}>
                             <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain transition-all duration-700" />
                           </div>
                         )}
