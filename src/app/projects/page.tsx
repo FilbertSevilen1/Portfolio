@@ -245,7 +245,7 @@ function ProjectsContent() {
             <div className="max-w-7xl mx-auto">
                 <div className="mb-20">
                     <h2 className="text-4xl md:text-6xl font-black italic uppercase mb-4">
-                        Project <span className="text-green-500">Registry</span>
+                        Project <span className="text-green-500">List</span>
                     </h2>
                     <p className="font-mono text-xs text-white/30 tracking-[0.3em]">Total Projects: {projectsData.length}</p>
                 </div>
