@@ -1,5 +1,25 @@
 [
   {
+    "title": "Vault",
+    "description": "Personal Project: Built a privacy-first personal wealth vault application. All financial transactions, portfolios, and goals are stored exclusively inside the browser's local database for 100% data ownership, offline compatibility, and zero tracking. Developed using React.js, Tailwind CSS, Zustand, and Dexie.js.",
+    "year": "June 2026",
+    "tags": ["React.js", "Tailwind CSS", "Zustand", "Dexie.js", "UI/UX Design"],
+    "images": [
+      "/images/projects/vault/1.png",
+      "/images/projects/vault/2.png",
+      "/images/projects/vault/3.png",
+      "/images/projects/vault/4.png",
+      "/images/projects/vault/5.png",
+      "/images/projects/vault/6.png",
+      "/images/projects/vault/7.png",
+      "/images/projects/vault/8.png",
+      "/images/projects/vault/9.png"
+    ],
+    "link": "https://asteravault.vercel.app/",
+    "iconKey": "mdiShieldLockOutline",
+    "color": "from-violet-600/20 to-indigo-600/20"
+  },
+  {
     "title": "Masamas",
     "description": "Personal Project: Developed a building store website to sell materials for construction projects, featuring advanced catalog grids, product specifications, category filters, cart options, and dynamic listings. Built with React, Next.js, MySQL, and Node.js.",
     "year": "2026",
