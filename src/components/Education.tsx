@@ -114,7 +114,7 @@ export default function Education() {
                     </div>
                   )}
 
-                  <div className="flex flex-col gap-3 mt-auto">
+                  <div className="flex flex-col gap-3">
                     {item.details.map((detail, j) => (
                       <div key={j} className="flex gap-2 text-gray-300 text-sm md:text-base group-hover:text-gray-200 transition-colors">
                         <Icon path={mdiChevronRight} size={0.8} className="text-green-500 shrink-0 mt-0.5" />
