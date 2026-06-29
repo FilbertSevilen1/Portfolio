@@ -421,7 +421,7 @@ export default function ProjectsPage() {
   return (
     <Suspense fallback={
         <div className="min-h-screen bg-black text-white flex items-center justify-center font-mono uppercase tracking-[0.3em]">
-            Initializing Neural Interface...
+            Welcome to my Portfolio
         </div>
     }>
       <ProjectsContent />
