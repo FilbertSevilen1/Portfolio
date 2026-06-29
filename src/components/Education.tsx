@@ -34,10 +34,10 @@ export default function Education() {
           Education
         </h2>
         <motion.div
-           initial={{ scaleX: 0 }}
-           whileInView={{ scaleX: 1 }}
-           transition={{ duration: 1, ease: "circOut" }}
-           className="w-24 h-1 bg-green-500 mt-4 rounded-full"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 1, ease: "circOut" }}
+          className="w-24 h-1 bg-green-500 mt-4 rounded-full"
         />
       </div>
 
@@ -51,7 +51,9 @@ export default function Education() {
               transition={{ delay: index * 0.2 }}
             >
               <Icon path={mdiSchool} size={1} className="text-gray-400" />
-              <h3 className="text-xl font-bold tracking-tight text-white">{section.category}</h3>
+              <h3 className="text-xl font-bold tracking-tight text-white">
+                {section.category}
+              </h3>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -68,63 +70,96 @@ export default function Education() {
                 >
                   {/* Top Colored Border Accent */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-600 to-green-400 opacity-80" />
-                  
+
                   <div className="flex items-start gap-4 mb-6">
-                     <div className="w-12 h-12 rounded-full bg-gray-800/80 border border-gray-700 flex items-center justify-center shrink-0 mt-0.5">
-                        <span className="text-lg font-bold text-green-400">{item.abbreviation}</span>
-                     </div>
-                     <div className="flex flex-col flex-1">
-                        <div className="flex flex-wrap items-center gap-3">
-                          <h4 className="text-lg md:text-xl font-bold text-white leading-tight">
-                            {item.degree}
-                          </h4>
-                          {item.year && (
-                             <div className="px-3 py-0.5 bg-gray-800 rounded-full border border-gray-700 w-fit">
-                                <span className="text-xs font-mono text-gray-300">{item.year}</span>
-                             </div>
-                          )}
+                    <div className="w-12 h-12 rounded-full bg-gray-800/80 border border-gray-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="text-lg font-bold text-green-400">
+                        {item.abbreviation}
+                      </span>
+                    </div>
+                    <div className="flex flex-col flex-1">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <h4 className="text-lg md:text-xl font-bold text-white leading-tight">
+                          {item.degree}
+                        </h4>
+                      </div>
+                      <span className="text-green-500 font-medium text-sm mt-1">
+                        {item.major}
+                      </span>
+                      {item.year && (
+                        <div className="px-3 py-0.5 my-2 bg-gray-800 rounded-full border border-gray-700 w-fit">
+                          <span className="text-xs font-mono text-gray-300">
+                            {item.year}
+                          </span>
                         </div>
-                        <span className="text-green-500 font-medium text-sm mt-1">{item.major}</span>
-                     </div>
+                      )}
+                    </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm md:text-base text-gray-300 mb-6 font-medium">
-                     <div className="flex items-center gap-1.5">
-                       <Icon path={mdiSchool} size={0.8} className="opacity-70" />
-                       <span>{item.institution}</span>
-                     </div>
-                     <div className="flex items-center gap-1.5">
-                       <Icon path={mdiMapMarker} size={0.8} className="opacity-70" />
-                       <span>{item.location}</span>
-                     </div>
+                    <div className="flex items-center gap-1.5">
+                      <Icon
+                        path={mdiSchool}
+                        size={0.8}
+                        className="opacity-70"
+                      />
+                      <span>{item.institution}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Icon
+                        path={mdiMapMarker}
+                        size={0.8}
+                        className="opacity-70"
+                      />
+                      <span>{item.location}</span>
+                    </div>
                   </div>
 
                   {item.gpa && item.maxGpa && (
                     <div className="mb-6 flex items-center gap-4">
-                       <span className="text-xs md:text-sm font-bold text-gray-300 uppercase tracking-wider shrink-0">GPA/Score</span>
-                       <div className="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                          <motion.div 
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${(item.gpa / item.maxGpa) * 100}%` }}
-                            transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-                            className="h-full bg-gradient-to-r from-green-600 to-green-400 rounded-full"
-                          />
-                       </div>
-                       <span className="text-sm font-bold text-white shrink-0">{item.gpa} / {item.maxGpa}</span>
+                      <span className="text-xs md:text-sm font-bold text-gray-300 uppercase tracking-wider shrink-0">
+                        GPA/Score
+                      </span>
+                      <div className="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{
+                            width: `${(item.gpa / item.maxGpa) * 100}%`,
+                          }}
+                          transition={{
+                            duration: 1.5,
+                            delay: 0.5,
+                            ease: "easeOut",
+                          }}
+                          className="h-full bg-gradient-to-r from-green-600 to-green-400 rounded-full"
+                        />
+                      </div>
+                      <span className="text-sm font-bold text-white shrink-0">
+                        {item.gpa} / {item.maxGpa}
+                      </span>
                     </div>
                   )}
 
                   <div className="flex flex-col gap-3">
                     {item.details.map((detail, j) => (
-                      <div key={j} className="flex gap-2 text-gray-300 text-sm md:text-base group-hover:text-gray-200 transition-colors">
-                        <Icon path={mdiChevronRight} size={0.8} className="text-green-500 shrink-0 mt-0.5" />
+                      <div
+                        key={j}
+                        className="flex gap-2 text-gray-300 text-sm md:text-base group-hover:text-gray-200 transition-colors"
+                      >
+                        <Icon
+                          path={mdiChevronRight}
+                          size={0.8}
+                          className="text-green-500 shrink-0 mt-0.5"
+                        />
                         <p className="leading-relaxed">{detail}</p>
                       </div>
                     ))}
                   </div>
 
                   <div className="mt-8 pt-4 border-t border-gray-800/50 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-xs font-black tracking-widest text-gray-500 uppercase">Click to expand</span>
+                    <span className="text-xs font-black tracking-widest text-gray-500 uppercase">
+                      Click to Preview
+                    </span>
                   </div>
                 </motion.a>
               ))}
