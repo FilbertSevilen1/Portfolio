@@ -5,8 +5,8 @@
       { "name": "React", "iconKey": "mdiReact" },
       { "name": "Vue.js", "iconKey": "mdiVuejs" },
       { "name": "TypeScript", "iconKey": "mdiLanguageTypescript" },
-      { "name": "Next.js", "iconKey": "mdiReact" },
-      { "name": "Nuxt3", "iconKey": "mdiVuejs" },
+      { "name": "Next.js", "iconKey": "mdiCodeTags" },
+      { "name": "Nuxt3", "iconKey": "mdiCodeTags" },
       { "name": "HTML/CSS", "iconKey": "mdiLanguageHtml5" },
       { "name": "Angular.js", "iconKey": "mdiCodeTags" }
     ],
@@ -14,7 +14,7 @@
       { "name": "Node.js", "iconKey": "mdiNodejs" },
       { "name": "Python", "iconKey": "mdiLanguagePython" },
       { "name": "ASP.NET", "iconKey": "mdiDotNet" },
-      { "name": "Flask", "iconKey": "mdiBottleTonic" },
+      { "name": "Flask", "iconKey": "mdiCodeTags" },
       { "name": "Express.js", "iconKey": "mdiNodejs" },
       { "name": "C#", "iconKey": "mdiCodeTags" }
     ],
