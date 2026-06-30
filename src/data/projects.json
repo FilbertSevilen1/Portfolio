@@ -38,7 +38,7 @@
       "/images/projects/masamas/11.png",
       "/images/projects/masamas/12.png"
     ],
-    "link": "",
+    "link": "https://masamas-fe.vercel.app/",
     "iconKey": "mdiCartOutline",
     "color": "from-amber-600/20 to-orange-600/20"
   },
